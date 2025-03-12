@@ -162,7 +162,7 @@ const MealBox: React.FC = () => {
         {/* Breakfast Section */}
         {selectedMealType === "breakfast" && (
           <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
-            <h3 className="text-3xl font-semibold text-center mb-6">Breakfast Options</h3>
+            <h3 className="text-3xl font-semibold text-center mb-6">Breakfast </h3>
             <p className ="mb-4 text-center">Available Breakfast Items:</p>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {breakfastOptions.map((item, index) => (
@@ -206,7 +206,7 @@ const MealBox: React.FC = () => {
         {/* Lunch Section */}
         {selectedMealType === "lunch" && (
           <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
-            <h3 className="text-3xl font-semibold text-center mb-6">Lunch Options</h3>
+            <h3 className="text-3xl font-semibold text-center mb-6">Lunch </h3>
             <p className="mb-4 text-center">Available Lunch Items:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {lunchOptions.map((item, index) => (
