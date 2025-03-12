@@ -51,7 +51,6 @@ const Cart: React.FC = () => {
                 <p className="text-lg text-gray-700">Quantity: {item.quantity}</p>
                 <p className="text-lg text-gray-700">Pack: {item.pack}</p>
                 {item.option !== "N/A" && <p className="text-lg text-gray-700">Option: {item.option}</p>}
-                <p className="text-lg text-gray-700">Source: {item.source}</p>
                 <p className="text-lg font-bold text-gray-700">Total: ${(item.price * item.quantity).toFixed(2)} AUD</p>
               </div>
               <button
@@ -74,7 +73,7 @@ const Cart: React.FC = () => {
         </div>
       )}
 
-      <div className="mt-8 flex justify-between">
+ <div className="mt-8 flex justify-between">
         <button
           onClick={() => navigate(-1)}
           className="bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition"
@@ -85,11 +84,11 @@ const Cart: React.FC = () => {
           onClick={handleCheckout}
           className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition"
         >
- Checkout
+          Checkout
         </button>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default Cart; 
