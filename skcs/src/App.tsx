@@ -12,7 +12,9 @@ import MenuSection from "./components/MenuSection";
 import CartPage from "./components/CartPage";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Footer from "./components/Footer";
-import About from "./components/About"; // ✅ Import the About component
+import About from "./components/About";
+import Subscription from "./components/Subscription";
+import TodaysDeals from "./components/TodaysDeals"; // ✅ Import the TodaysDeals component
 
 function App() {
   return (
@@ -57,6 +59,12 @@ function App() {
 
             {/* ℹ️ About Page */}
             <Route path="/about" element={<><About /><Contact /></>} />
+
+            {/* 📅 Subscription Page */}
+            <Route path="/subscription" element={<Subscription />} />
+
+            {/* 🎉 Today's Deals Page */}
+            <Route path="/todays-deals" element={<TodaysDeals />} />
           </Routes>
         </main>
 

@@ -7,14 +7,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
   const [cartNotification, setCartNotification] = useState("");
-  const [cartItems, setCartItems] = useState([]);
 
   // Function to update cart count & notification
   const updateCart = (action = "") => {
     const cart = JSON.parse(localStorage.getItem("shoppingCart") || "[]");
     setCartCount(cart.length);
-    setCartItems(cart);
-
     if (action === "add") {
       setCartNotification(`Added 1`);
     } else if (action === "remove") {
@@ -31,7 +28,7 @@ const Navbar = () => {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     setIsOpen(false); // Close the mobile menu
     navigate(path); // Navigate to the selected path
   };
@@ -54,6 +51,7 @@ const Navbar = () => {
             <Link to="/menu" className="hover:text-orange-500 transition">Menu</Link>
             <Link to="/mealbox" className="hover:text-orange-500 transition">Daily Box</Link>
             <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link>
+            <Link to="/subscription" className="hover:text-orange-500 transition">Subscription</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>
             <Link to="/cart" className="relative">
@@ -84,6 +82,9 @@ const Navbar = () => {
               </button>
               <button onClick={() => handleNavigation("/trip-packages")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
                 Trip Packages
+              </button>
+              <button onClick={() => handleNavigation("/subscription")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+              Subscription
               </button>
               <button onClick={() => handleNavigation("/about")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
                 About Us

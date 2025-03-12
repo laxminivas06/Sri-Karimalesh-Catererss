@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // ✅ Import Link
+import { Link, useNavigate } from "react-router-dom"; // ✅ Import useNavigate
+import WhatsAppButton from "./WhatsAppButton"; // ✅ Import WhatsAppButton
 
 const quotes = [
   {
@@ -27,9 +28,12 @@ const backgroundImages = [
   "https://www.shutterstock.com/image-photo/andhra-pradesh-traditional-thali-india-600nw-2172140155.jpg",
 ];
 
+
+
 const Hero = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [currentBackground, setCurrentBackground] = useState(0);
+  const navigate = useNavigate(); // ✅ Initialize useNavigate
 
   useEffect(() => {
     const quoteTimer = setInterval(() => {
@@ -46,8 +50,12 @@ const Hero = () => {
     };
   }, []);
 
+  const handleTodaysDealClick = () => {
+    navigate("/todays-deals"); // ✅ Navigate to Today's Deals page
+  };
+
   return (
-    <div className="relative h-screen flex items-center justify-center">
+    <div className="relative h-screen flex flex-col items-center justify-center">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
@@ -59,19 +67,19 @@ const Hero = () => {
       </div>
 
       {/* Text Content */}
-      <div className="relative z-10 text-center text-white px-6">
+      <div className="relative z-10 text-center text-white px-6 flex flex-col items-center justify-center h-full">
         {/* Logo */}
         <img
           src="https://res.cloudinary.com/dt3effj06/image/upload/v1741682845/hv_vcp39h.svg"
           alt="Sri Karimalesh Caterings Logo"
-          className="w-400 h-400 mx-auto mb-6" // Adjust size as needed
+          className="w-400 h-400  mx-auto mb-6" // Adjust size as needed
         />
 
         {/* Quotes */}
         <div className="space-y-3">
           <p className="text-2xl md:text-3xl font-semibold text-orange-300 font-serif shadow-lg">
             {quotes[currentQuote].telugu}
-          </p>
+          </ p>
           <p className="text-lg md:text-2xl italic text-yellow-300 font-sans shadow-lg">
             {quotes[currentQuote].english}
           </p>
@@ -81,14 +89,20 @@ const Hero = () => {
         </div>
 
         {/* Explore Menu Link */}
-        <div className="mt-10">
-          <Link
-            to="/menu"
-            className="bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-700 transition duration-300 shadow-lg"
-          >
-            Explore Our Menu 🍽️
-          </Link>
-        </div>
+<div className="mt-10 space-y-4">
+  <Link
+    to="/menu"
+    className="bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-700 transition duration-300 shadow-lg"
+  >
+    Explore Our Menu 🍽️
+  </Link>
+  <button
+    onClick={handleTodaysDealClick}
+    className="bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300 shadow-lg mt-7" // Added margin-top here
+  >
+    Today's Deal 🎉
+  </button>
+</div>
       </div>
 
       {/* Flash News Ticker */}
@@ -99,8 +113,12 @@ const Hero = () => {
           </p>
         </div>
       </div>
-    </div>
+
+      
+          
+      </div>
+   
   );
 };
 
-export default Hero;
+export default Hero; 
