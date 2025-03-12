@@ -74,7 +74,13 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden bg-gray-100 text-gray-800 py-2 rounded-md shadow-md">
             <div className="px-4 space-y-2">
-              
+            <button onClick={() => handleNavigation("/menu")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+              Catering
+              </button><button onClick={() => handleNavigation("/meal-box")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+              Daily Box
+              </button><button onClick={() => handleNavigation("/trip-packages")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+              Trip Package
+              </button>
               <button onClick={() => handleNavigation("/subscription")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
               Subscription
               </button>

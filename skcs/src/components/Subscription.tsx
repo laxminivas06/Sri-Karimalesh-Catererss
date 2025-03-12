@@ -172,22 +172,22 @@ const Subscription = () => {
         {/* Video Section */}
         <div className="mt-12">
           <h2 className="text-4xl font-bold mb-6 text-center">Watch and Learn</h2>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/xk43j2A_BNU"
-            title="Healthy Eating vs Junk Food"
-            frameBorder="0"
-            allowFullScreen
-            className="mx-auto"
-          ></iframe>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/xk43j2A_BNU"
+              title="Healthy Eating vs Junk Food"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
 
         {/* Negatives of Junk Food */}
         <div className="mt-12 p-8 bg-red-100 rounded-2xl shadow-lg">
           <h2 className="text-4xl font-bold mb-6 text-center">Negatives of Junk Food</h2>
-          <ul className="list-disc list-inside mb-6">
-            <li className="text-lg mb-2"> Increases the risk of obesity and related diseases.</li>
+          <ul className ="list-disc list-inside mb-6">
+            <li className="text-lg mb-2">Increases the risk of obesity and related diseases.</li>
             <li className="text-lg mb-2">Can lead to heart disease due to high levels of trans fats.</li>
             <li className="text-lg mb-2">Contributes to diabetes and insulin resistance.</li>
             <li className="text-lg mb-2">May cause digestive issues due to low fiber content.</li>
