@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Subscription from "./components/Subscription";
 import TodaysDeals from "./components/TodaysDeals"; // ✅ Import the TodaysDeals component
+import ContainerPage from "./components/ContainerPage"; // Import the new ContainerPage
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               element={
                 <>
                   <Hero />
+                  <ContainerPage />
                   <Services />
                   <Testimonials />
                   <WhatsAppButton floating />
@@ -65,6 +67,9 @@ function App() {
 
             {/* 🎉 Today's Deals Page */}
             <Route path="/todays-deals" element={<TodaysDeals />} />
+
+            {/* 📦 Container Page */}
+            <Route path="/container-page" element={<ContainerPage />} /> {/* Add the new route */}
           </Routes>
         </main>
 

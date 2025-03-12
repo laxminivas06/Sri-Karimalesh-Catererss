@@ -332,7 +332,7 @@ const CategoryPage: React.FC = () => {
                     </button>
                   </div>
                 )}
-                {/* Quantity Adjustment for other items */}
+                {/* Quantity Adjustment for other items
                 <div className="flex justify-center items-center mt-4">
                   <button
                     onClick={() => {
@@ -358,7 +358,7 @@ const CategoryPage: React.FC = () => {
                   >
                     +
                   </button>
-                </div>
+                </div> */}
 
                 {/* Add to Cart Button */}
                 <button

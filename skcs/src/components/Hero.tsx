@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ✅ Import useNavigate
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom"; // ✅ Import useNavigate
 import WhatsAppButton from "./WhatsAppButton"; // ✅ Import WhatsAppButton
+import { FaArrowDown } from "react-icons/fa"; // Import an icon for the button
 
 const quotes = [
   {
@@ -28,12 +29,10 @@ const backgroundImages = [
   "https://www.shutterstock.com/image-photo/andhra-pradesh-traditional-thali-india-600nw-2172140155.jpg",
 ];
 
-
-
 const Hero = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [currentBackground, setCurrentBackground] = useState(0);
-  const navigate = useNavigate(); // ✅ Initialize useNavigate
+  const containerRef = useRef<HTMLDivElement | null>(null); // Create a ref for the container
 
   useEffect(() => {
     const quoteTimer = setInterval(() => {
@@ -50,8 +49,10 @@ const Hero = () => {
     };
   }, []);
 
-  const handleTodaysDealClick = () => {
-    navigate("/todays-deals"); // ✅ Navigate to Today's Deals page
+  const handleViewMoreClick = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the container
+    }
   };
 
   return (
@@ -63,7 +64,7 @@ const Hero = () => {
           backgroundImage: `url(${backgroundImages[currentBackground]})`,
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div> {/* Adjust opacity for transparency */}
       </div>
 
       {/* Text Content */}
@@ -72,14 +73,14 @@ const Hero = () => {
         <img
           src="https://res.cloudinary.com/dt3effj06/image/upload/v1741682845/hv_vcp39h.svg"
           alt="Sri Karimalesh Caterings Logo"
-          className="w-400 h-400  mx-auto mb-6" // Adjust size as needed
+          className="w-400 h-400 mx-auto mb-6" // Adjust size as needed
         />
 
         {/* Quotes */}
-        <div className="space-y-3">
+        <div className="space-y-4"> {/* Increased gap between quotes */}
           <p className="text-2xl md:text-3xl font-semibold text-orange-300 font-serif shadow-lg">
             {quotes[currentQuote].telugu}
-          </ p>
+          </p>
           <p className="text-lg md:text-2xl italic text-yellow-300 font-sans shadow-lg">
             {quotes[currentQuote].english}
           </p>
@@ -88,22 +89,22 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Explore Menu Link */}
-<div className="mt-10 space-y-4">
-  <Link
-    to="/menu"
-    className="bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-700 transition duration-300 shadow-lg"
-  >
-    Explore Our Menu 🍽️
-  </Link>
-  <button
-    onClick={handleTodaysDealClick}
-    className="bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300 shadow-lg mt-7" // Added margin-top here
-  >
-    Today's Deal 🎉
-  </button>
-</div>
+        {/* View More Button */}
+        <div className="mt-10"> {/* Increased margin top */}
+          <button
+            onClick={handleViewMoreClick}
+            className="flex items-center bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale-105" // Increased size and added hover effect
+          >
+            <span>View More</span>
+            <FaArrowDown className="ml-2" /> {/* Add an icon to the button */}
+          </button>
+        </div>
       </div>
+
+      {/* Container Page Section */}
+      <div ref={containerRef} className="bg-white py-10">
+      </div>
+      
 
       {/* Flash News Ticker */}
       <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3 overflow-hidden">
@@ -113,12 +114,8 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      
-          
-      </div>
-   
+    </div>
   );
 };
 
-export default Hero; 
+export default Hero;
