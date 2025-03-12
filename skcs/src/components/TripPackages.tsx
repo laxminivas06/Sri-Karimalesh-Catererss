@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Users } from 'lucide-react';
-import { GiRiceCooker, GiWheat, GiHotMeal, GiCurlyWing, GiChiliPepper, GiFlatfish, GiBowlOfRice } from "react-icons/gi"; // Food icons
-import { FaRegLemon } from "react-icons/fa"; // Chutney icon
 import WhatsAppButton from './WhatsAppButton';
 
 const packages = [
@@ -72,34 +70,41 @@ const TripPackages = () => {
                   </div>
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-center">
-                      <GiRiceCooker className="w-5 h-5 text-green-500 mr-2" />
-                      Special Rice
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                       Rice
                     </li>
                     <li className="flex items-center">
-                      <GiWheat className="w-5 h-5 text-green-500 mr-2" />
-                      Roti
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      1 Curries
                     </li>
                     <li className="flex items-center">
-                      <GiHotMeal className="w-5 h-5 text-green-500 mr-2" />
-                      2 Curries
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Chutney
                     </li>
                     <li className="flex items-center">
-                      <GiCurlyWing className="w-5 h-5 text-green-500 mr-2" />
-                      Sambar
-                    </li>
-                    <li className="flex items-center">
-                      <GiBowlOfRice className="w-5 h-5 text-green-500 mr-2" />
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                       Curd
                     </li>
                     <li className="flex items-center">
-                      <GiFlatfish className="w-5 h-5 text-green-500 mr-2" />
-                      Papad
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Water Bottle
                     </li>
                     <li className="flex items-center">
-                      <FaRegLemon className="w-5 h-5 text-green-500 mr-2" />
-                      Chutney
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Sambar
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Curd
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Water Bottle
                     </li>
                   </ul>
+                  <p className="text-gray-600 text-sm mb-4">
+                    Please inform us at least 2 days in advance for any order.
+                  </p>
                   <WhatsAppButton message={`Hi! I'm interested in the ${pkg.name} Package for ${pkg.persons} persons.`} />
                 </div>
               </div>
@@ -135,8 +140,6 @@ const TripPackages = () => {
             />
           </div>
         </div>
-
-        \
       </div>
     </section>
   );

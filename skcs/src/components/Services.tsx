@@ -15,7 +15,7 @@ const services = [
   },
   {
     icon: <Heart className="w-12 h-12" />,
-    title: 'Marriages',
+    title: 'Anniversary Parties',
     description: 'Create unforgettable wedding experiences with our authentic Telugu cuisine.',
   },
   {

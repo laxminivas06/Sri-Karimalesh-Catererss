@@ -332,33 +332,7 @@ const CategoryPage: React.FC = () => {
                     </button>
                   </div>
                 )}
-                {/* Quantity Adjustment for other items
-                <div className="flex justify-center items-center mt-4">
-                  <button
-                    onClick={() => {
-                      const newQuantity = customQuantity - 1;
-                      setCustomQuantity(newQuantity > 0 ? newQuantity : 1); // Prevent negative quantity
-                    }}
-                    className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={customQuantity}
-                    onChange={(e) => setCustomQuantity(Number(e.target.value))}
-                    className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
-                  />
-                  <button
-                    onClick={() => {
-                      setCustomQuantity(customQuantity + 1); // Increment quantity
-                    }}
-                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
-                  >
-                    +
-                  </button>
-                </div> */}
+                
 
                 {/* Add to Cart Button */}
                 <button
