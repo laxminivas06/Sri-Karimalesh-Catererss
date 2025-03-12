@@ -19,6 +19,7 @@ const MealBox: React.FC = () => {
   const [addedLunchItems, setAddedLunchItems] = useState<{ [key: string]: boolean }>({});
   const [totalAmount, setTotalAmount] = useState<number>(0);
   const [lunchContainerSize, setLunchContainerSize] = useState<{ [key: string]: "500ml" | "750ml" }>({});
+  const [selectedMealType, setSelectedMealType] = useState<"breakfast" | "lunch" | null>(null); // State to track selected meal type
 
   const breakfastOptions = [
     { name: "Poha", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Poha_th9h0c.jpg", price: 5.99 },
@@ -116,6 +117,10 @@ const MealBox: React.FC = () => {
     }
   };
 
+  const toggleMealType = (type: "breakfast" | "lunch") => {
+    setSelectedMealType(prev => (prev === type ? null : type)); // Toggle the selected meal type
+  };
+
   return (
     <section id="mealbox" className="py-20 px-4 bg-orange-50">
       <div className="container mx-auto">
@@ -131,100 +136,120 @@ const MealBox: React.FC = () => {
           <h3 className="text-2xl font-semibold">Total Amount: ${totalAmount.toFixed(2)} AUD</h3>
         </div>
 
-        {/* Breakfast Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
-          <h3 className="text-3xl font-semibold text-center mb-6">Breakfast Options</h3>
-          <p className="mb-4 text-center">Available Breakfast Items:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {breakfastOptions.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
-                <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
-                <h4 className="text-lg font-semibold">{item.name}</h4>
-                <span className="text-lg font-bold">Price: ${item.price} AUD</span>
-                <div className="flex justify-center items-center mt-4">
-                  <button
-                    onClick={() => handleQuantityChange(item.name, "breakfast", -1)}
-                    className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="0"
-                    value={breakfastQuantities[item.name] || 0}
-                    readOnly
-                    className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
-                  />
-                  <button
-                    onClick={() => handleQuantityChange(item.name, "breakfast", 1)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
-                  >
-                    +
-                  </button>
-                </div>
-                <button
-                  onClick={() => addToCart(item.name, "breakfast")}
-                  className={`mt-2 px-4 py-2 rounded-md ${addedBreakfastItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
-                >
-                  {addedBreakfastItems[item.name] ? "Added" : "Add to Cart"}
-                </button>
-              </div>
-            ))}
-          </div>
+        {/* Meal Type Toggle Buttons */}
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={() => toggleMealType("breakfast")}
+            className={`px-4 py-2 rounded-md ${selectedMealType === "breakfast" ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+          >
+            Breakfast
+          </button>
+          <button
+            onClick={() => toggleMealType("lunch")}
+            className={`ml-4 px-4 py-2 rounded-md ${selectedMealType === "lunch" ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+          >
+            Lunch
+          </button>
         </div>
 
-        {/* Lunch Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
-          <h3 className="text-3xl font-semibold text-center mb-6">Lunch Options</h3>
-          <p className="mb-4 text-center">Available Lunch Items:</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {lunchOptions.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
-                <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
-                <h4 className="text-lg font-semibold">{item.name}</h4>
-                <span className="text-lg font-bold">Price: 500ml - ${item.price["500ml"]} AUD, 750ml - ${item.price["750ml"]} AUD</span>
-                <div className="flex justify-center items-center mt-4">
+        {/* Breakfast Section */}
+        {selectedMealType === "breakfast" && (
+          <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
+            <h3 className="text-3xl font-semibold text-center mb-6">Breakfast Options</h3>
+            <p className="mb-4 text-center">Available Breakfast Items:</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {breakfastOptions.map ((item, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                  <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
+                  <h4 className="text-lg font-semibold">{item.name}</h4>
+                  <span className="text-lg font-bold">Price: ${item.price} AUD</span>
+                  <div className="flex justify-center items-center mt-4">
+                    <button
+                      onClick={() => handleQuantityChange(item.name, "breakfast", -1)}
+                      className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      min="0"
+                      value={breakfastQuantities[item.name] || 0}
+                      readOnly
+                      className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
+                    />
+                    <button
+                      onClick={() => handleQuantityChange(item.name, "breakfast", 1)}
+                      className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    onClick={() => handleQuantityChange(item.name, "lunch", -1)}
-                    className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
+                    onClick={() => addToCart(item.name, "breakfast")}
+                    className={`mt-2 px-4 py-2 rounded-md ${addedBreakfastItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
                   >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="0"
-                    value={lunchQuantities[item.name] || 0}
-                    readOnly
-                    className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
-                  />
-                  <button
-                    onClick={() => handleQuantityChange(item.name, "lunch", 1)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
-                  >
-                    +
+                    {addedBreakfastItems[item.name] ? "Added" : "Add to Cart"}
                   </button>
                 </div>
-                <div className="mt-2">
-                  <label className="mr-2">Container Size:</label>
-                  <select
-                    value={lunchContainerSize[item.name] || "500ml"}
-                    onChange={(e) => setLunchContainerSize(prev => ({ ...prev, [item.name]: e.target.value as "500ml" | "750ml" } ))}
-                    className="border border-gray-300 rounded-md p-2"
-                  >
-                    <option value="500ml">500ml</option>
-                    <option value="750ml">750ml</option>
-                  </select>
-                </div>
-                <button
-                  onClick={() => addToCart(item.name, "lunch")}
-                  className={`mt-2 px-4 py-2 rounded-md ${addedLunchItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
-                >
-                  {addedLunchItems[item.name] ? "Added" : "Add to Cart"}
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Lunch Section */}
+        {selectedMealType === "lunch" && (
+          <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
+            <h3 className="text-3xl font-semibold text-center mb-6">Lunch Options</h3>
+            <p className="mb-4 text-center">Available Lunch Items:</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {lunchOptions.map((item, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                  <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
+                  <h4 className="text-lg font-semibold">{item.name}</h4>
+                  <span className="text-lg font-bold">Price: 500ml - ${item.price["500ml"]} AUD, 750ml - ${item.price["750ml"]} AUD</span>
+                  <div className="flex justify-center items-center mt-4">
+                    <button
+                      onClick={() => handleQuantityChange(item.name, "lunch", -1)}
+                      className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      min="0"
+                      value={lunchQuantities[item.name] || 0}
+                      readOnly
+                      className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
+                    />
+                    <button
+                      onClick={() => handleQuantityChange(item.name, "lunch", 1)}
+                      className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="mt-2">
+                    <label className="mr-2">Container Size:</label>
+                    <select
+                      value={lunchContainerSize[item.name] || "500ml"}
+                      onChange={(e) => setLunchContainerSize(prev => ({ ...prev, [item.name]: e.target.value as "500ml" | "750ml" }))}
+                      className="border border-gray-300 rounded-md p-2"
+                    >
+                      <option value="500ml">500ml</option>
+                      <option value="750ml">750ml</option>
+                    </select>
+                  </div>
+                  <button
+                    onClick={() => addToCart(item.name, "lunch")}
+                    className={`mt-2 px-4 py-2 rounded-md ${addedLunchItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+                  >
+ {addedLunchItems[item.name] ? "Added" : "Add to Cart"}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
