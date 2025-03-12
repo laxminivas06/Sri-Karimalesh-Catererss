@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const MealBox = () => {
   const [notification, setNotification] = useState(""); // State for notification message
-  const [breakfastQuantities, setBreakfastQuantities] = useState({}); // Track quantities for breakfast items
-  const [lunchQuantities, setLunchQuantities] = useState({}); // Track quantities for lunch items
-  const [addedBreakfastItems, setAddedBreakfastItems] = useState({}); // Track added breakfast items
-  const [addedLunchItems, setAddedLunchItems] = useState({}); // Track added lunch items
-  const [lunchContainerSize, setLunchContainerSize] = useState({}); // Track selected container size for lunch items
-  const [cart, setCart] = useState([]); // State for cart items
+  const [breakfastQuantities, setBreakfastQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for breakfast items
+  const [lunchQuantities, setLunchQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for lunch items
+  const [cart, setCart] = useState<{ name: string; price: number | { "500ml": number; "750ml": number }; img: string; quantity: number; pack: string; option: string; source: "breakfast" | "lunch" }[]>([]); // State for cart items
+  const [addedBreakfastItems, setAddedBreakfastItems] = useState<{ [key: string]: boolean }>({}); // State for added breakfast items
+  const [addedLunchItems, setAddedLunchItems] = useState<{ [key: string]: boolean }>({}); // State for added lunch items
   const [totalAmount, setTotalAmount] = useState(0); // State for total amount
+  const [lunchContainerSize, setLunchContainerSize] = useState<{ [key: string]: "500ml" | "750ml" }>({}); // Track container sizes for lunch items
 
   const breakfastOptions = [
     { name: "Poha", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Poha_th9h0c.jpg", price: 5.99 },
-    { name: "Idli", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Idli_w1uarq.jpg", price:  5.50 },
-    { name: "Sabudana Khichdi", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Sabudhan_pyrly6.jpg", price:  5.99 },
-    { name: "Godhuma rava Upma", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Godhuma_rava_nw8rl3.jpg", price:  5.99 },
-    { name: "Pasta", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Pasta_kevysw.jpg", price:  6.99 },
-    { name: "Tomato Bath", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Tomatao_unt7y3.jpg", price:  5.50 },
+    { name: "Idli", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Idli_w1uarq.jpg", price: 5.50 },
+    { name: "Sabudana Khichdi", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Sabudhan_pyrly6.jpg", price: 5.99 },
+    { name: "Godhuma rava Upma", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Godhuma_rava_nw8rl3.jpg", price: 5.99 },
+    { name: "Pasta", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Pasta_kevysw.jpg", price: 6.99 },
+    { name: "Tomato Bath", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Tomatao_unt7y3.jpg", price: 5.50 },
   ];
 
   const lunchOptions = [
@@ -31,32 +31,50 @@ const MealBox = () => {
     { name: "Bisibelebath", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741698724/so9tvnlkudzgcjp06qbg.jpg", price: { "500ml": 9.99, "750ml": 13.99 } },
   ];
 
-  const addToCart = (itemName, type) => {
+  useEffect(() => {
+    // Load cart from local storage on component mount
+    const savedCart = localStorage.getItem("shoppingCart");
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      setCart(parsedCart);
+      const total = parsedCart.reduce((acc: number, item: { price: number; quantity: number }) => acc + item.price * item.quantity, 0);
+      setTotalAmount(total);
+    }
+  }, []);
+
+  const addToCart = (itemName: string, type: "breakfast" | "lunch") => {
     const item = type === "breakfast" ? breakfastOptions.find(option => option.name === itemName) : lunchOptions.find(option => option.name === itemName);
     const quantity = type === "breakfast" ? breakfastQuantities[itemName] : lunchQuantities[itemName];
     const containerSize = type === "lunch" ? lunchContainerSize[itemName] : null;
 
     if (item && quantity > 0) {
-      const price = containerSize ? item.price[containerSize] : item.price;
-      const cartItem = {
-        name: item.name,
-        price: price,
-        img: item.img,
-        quantity: quantity,
-        pack: type === "breakfast" ? "Single Plate" : `${containerSize} Container`,
-        option: "N/A",
-        source: type
-      };
-      
-      // Update cart and total amount
-      setCart(prevCart => {
-        const updatedCart = [...prevCart, cartItem];
+      const price = containerSize ? (item.price as { [key: string]: number })[containerSize] : item.price;
+      const existingItemIndex = cart.findIndex(cartItem => cartItem.name === item.name && cartItem.pack === (type === "breakfast" ? "Single Plate" : `${containerSize} Container`));
+
+      if (existingItemIndex > -1) {
+        // Update quantity of existing item in cart
+        const updatedCart = [...cart];
+        updatedCart[existingItemIndex].quantity += quantity;
+        setCart(updatedCart);
         localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
-        return updatedCart;
-      });
+      } else {
+        // Add new item to cart
+        const cartItem = {
+          name: item.name,
+          price: price,
+          img: item.img,
+          quantity: quantity,
+          pack: type === "breakfast" ? "Single Plate" : `${containerSize} Container`,
+          option: "N/A",
+          source: type
+        };
+        const updatedCart = [...cart, cartItem];
+        setCart(updatedCart);
+        localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      }
 
       // Update total amount
-      setTotalAmount(prevTotal => prevTotal + (price * quantity));
+      setTotalAmount(prevTotal => prevTotal + (typeof price === 'number' ? price : 0) * quantity);
 
       if (type === "breakfast") {
         setAddedBreakfastItems(prev => ({ ...prev, [itemName]: true }));
@@ -75,7 +93,7 @@ const MealBox = () => {
     }
   };
 
-  const handleQuantityChange = (itemName, type, change) => {
+  const handleQuantityChange = (itemName: string, type: "breakfast" | "lunch", change: number) => {
     if (type === "breakfast") {
       setBreakfastQuantities(prev => {
         const newQuantity = (prev[itemName] || 0) + change;
@@ -165,14 +183,30 @@ const MealBox = () => {
                 {/* Container Size Selection for Lunch */}
                 <div className="mt-4">
                   <label className="mr-2">Select Container Size:</label>
-                  <select
-                    value={lunchContainerSize[item.name] || "500ml"}
-                    onChange={(e) => setLunchContainerSize(prev => ({ ...prev, [item.name]: e.target.value }))}
-                    className="border border-gray-300 rounded-md p-2"
-                  >
-                    <option value="500ml">500ml</option>
-                    <option value="750ml">750ml</option>
-                  </select>
+                  <div className="flex">
+                    <label className="mr-4">
+                      <input
+                        type="radio"
+                        name={`size-${item.name}`}
+                        value="500ml"
+                        checked={lunchContainerSize[item.name] === "500ml"}
+                        onChange={() => setLunchContainerSize(prev => ({ ...prev, [item.name]: "500ml" }))}
+                        className="form-radio h-4 w-4 text-orange-600"
+                      />
+                      <span className="ml-2">500ml</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name={`size-${item.name}`}
+                        value="750ml"
+                        checked={lunchContainerSize[item.name] === "750ml"}
+                        onChange={() => setLunchContainerSize(prev => ({ ...prev, [item.name]: "750ml" }))}
+                        className="form-radio h-4 w-4 text-orange-600"
+                      />
+                      <span className="ml-2">750ml</span>
+                    </label>
+                  </div>
                 </div>
                 {/* Quantity Adjustment for Lunch */}
                 <div className="flex justify-center items-center mt-4">
@@ -218,12 +252,13 @@ const MealBox = () => {
                     <img src={item.img} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
                     <div>
                       <h4 className="text-lg font-semibold">{item.name}</h4>
-                      <p className="text-gray-700">Price: ${item.price.toFixed(2)} AUD</p>
+                      <p className="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
                       <p className="text-gray-700">Quantity: {item.quantity}</p>
                       <p className="text-gray-700">Pack: {item.pack}</p>
+                      <p className="text-gray-700">Source: {item.source}</p> {/* Display the source here */}
                     </div>
                   </div>
-                  <p className="text-lg font-bold">Total: ${(item.price * item.quantity).toFixed(2)} AUD</p>
+                  <p className="text-lg font-bold">Total: ${(typeof item.price === 'number' ? item.price * item.quantity : 0).toFixed(2)} AUD</p>
                 </div>
               ))}
             </div>

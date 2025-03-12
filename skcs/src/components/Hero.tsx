@@ -91,14 +91,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Advertisement Panel
-      <div className="absolute bottom-0 left-0 right-0 bg-orange-900 bg-opacity-90 text-white py-3">
-        <div className="container mx-auto text-center">
-          <p className="text-lg font-medium animate-pulse">
-            🎉 Special Offer: 20% off on all Trip Packages this weekend! 🎉
+      {/* Flash News Ticker */}
+      <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3 overflow-hidden">
+        <div className="whitespace-nowrap animate-slide">
+          <p className="text-lg font-medium">
+            For your catering services, please inform us at least 3 days in advance!
           </p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

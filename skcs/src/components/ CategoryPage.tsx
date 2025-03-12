@@ -19,12 +19,12 @@ const categoryItems = {
     { name: "Cabbage Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://lh4.googleusercontent.com/S--PeValmjExVDYkf02IN3W1sN_pgJa0KHHwDM4BZhUkWm-B-lB9m05zAWCgsSOgffhCi9tIwyD1W1_LYc0nydGUFO3jN9qbtSS4B74Zup6vdm6HSu0178R9GIejyfVwgN72Y1g2" },
   ],
   Pickles: [
-    { name: "Tomato Pickle", prices: { "250g": 7.99, "500g": 12.99, "1000g": 19.99, "5000g": 89.99 }, img: "https://www.archanaskitchen.com/images/archanaskitchen/Indian_Pickles/Spicy_Tomato_Pickle_Recipe_South_Indian_Thakkali_Thokku.jpg" },
-    { name: "Palakura Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99, "5000g": 19.99 }, img: "https://vegetarianhomestylecooking2015.wordpress.com/wp-content/uploads/2016/05/img_0530-1.jpg" },
-    { name: "Pudina Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99, "5000g": 19.99 }, img: "https://www.orderpickles.in/cdn/shop/files/Pudina_grande.jpg?v=1707462756" },
-    { name: "Mango Pickle", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99, "5000g": 19.99 }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/01/mango-pickle-recipe.jpg" },
-    { name: "Coriander Pickle", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99, "5000g": 19.99 }, img: "https://kandrafoods.com/wp-content/uploads/2023/01/coriander-pickle.jpg" },
-    { name: "Mango Roti Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99, "5000g": 19.99 }, img: "https://i.ytimg.com/vi/JGaxbauxrj4/maxresdefault.jpg" },
+    { name: "Tomato Pickle", prices: { "250g": 7.99, "500g": 12.99, "1000g": 19.99  }, img: "https://www.archanaskitchen.com/images/archanaskitchen/Indian_Pickles/Spicy_Tomato_Pickle_Recipe_South_Indian_Thakkali_Thokku.jpg" },
+    { name: "Palakura Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99  }, img: "https://vegetarianhomestylecooking2015.wordpress.com/wp-content/uploads/2016/05/img_0530-1.jpg" },
+    { name: "Pudina Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99  }, img: "https://www.orderpickles.in/cdn/shop/files/Pudina_grande.jpg?v=1707462756" },
+    { name: "Mango Pickle", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99  }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/01/mango-pickle-recipe.jpg" },
+    { name: "Coriander Pickle", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99 }, img: "https://kandrafoods.com/wp-content/uploads/2023/01/coriander-pickle.jpg" },
+    { name: "Mango Roti Pachadi", prices: { "250g": 4.99, "500g": 6.99, "1000g": 8.99 }, img: "https://i.ytimg.com/vi/JGaxbauxrj4/maxresdefault.jpg" },
   ],
   "Rice Items": [
     { name: "Lemon Rice", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/lemon-rice-recipe.jpg" },
@@ -72,12 +72,12 @@ const categoryItems = {
     { name: "Fruit Salad", prices: { S: 4.99 }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/fruit-custard.jpg" },
   ],
   Starters: [
-    { name: "Veg Manchuria", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://chefadora.b-cdn.net/Screenshot_2024_10_01_140619_572a1d5d13.jpg" },
-    { name: "Baby Corn", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://cdn2.foodviva.com/static-content/food-images/chinese-recipes/baby-corn-manchurian/baby-corn-manchurian.jpg" },
-    { name: "Gobi", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/AXEzrUVD_XI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDjQi3nUJLrYEvsF5aHsHy7FSl68Q" },
-    { name: "Potato Bites", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/W1ePQ6MWark/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAzrE1A8ut_d9Bdj-sR0zYIWjbaQw" },
-    { name: "Crispy Corn", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://rakskitchen.net/wp-content/uploads/2022/01/crisp-corn-500x375.jpg" },
-    { name: "Paneer Bites", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://i0.wp.com/mayuris-jikoni.com/wp-content/uploads/2018/04/b6e23-img_6654.jpg?ssl=1" },
+    { name: "Veg Manchuria", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://chefadora.b-cdn.net/Screenshot_2024_10_01_140619_572a1d5d13.jpg" },
+    { name: "Baby Corn", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://cdn2.foodviva.com/static-content/food-images/chinese-recipes/baby-corn-manchurian/baby-corn-manchurian.jpg" },
+    { name: "Gobi", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/AXEzrUVD_XI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDjQi3nUJLrYEvsF5aHsHy7FSl68Q" },
+    { name: "Potato Bites", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/W1ePQ6MWark/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAzrE1A8ut_d9Bdj-sR0zYIWjbaQw" },
+    { name: "Crispy Corn", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://rakskitchen.net/wp-content/uploads/2022/01/crisp-corn-500x375.jpg" },
+    { name: "Paneer Bites", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://i0.wp.com/mayuris-jikoni.com/wp-content/uploads/2018/04/b6e23-img_6654.jpg?ssl=1" },
   ],
   Snacks: [
     { name: "Palak Pakodi", prices: { S: 4.99 }, img: "https://yummyindiankitchen.com/wp-content/uploads/2016/07/palak-pakoda-recipe.jpg" },
@@ -86,7 +86,7 @@ const categoryItems = {
   Hots: [
     { name: "Mirchi Bajji", prices: { S: 4.99 }, img: "https://binjalsvegkitchen.com/wp-content/uploads/2024/09/Mirchi-Bajji-H1.jpg" },
     { name: "Alu Bajji", prices: { S: 4.99 }, img: "https://i.ytimg.com/vi/7KhTfQ2Kr8w/maxresdefault.jpg" },
-    { name: "Onion Bajji", prices: { S: 4.99 }, img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741698731/s87kkq8zsoiar2pykrsw.jpg" },
+    { name: "Onion Bajji", prices: { S: 4.99 }, img: "https://www.kamalascorner.com/wp-content/uploads/2015/03/pakoda.jpg" },
     { name: "Vankaya Bajji", prices: { S: 4.99 }, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8hDLa_CcIrXDYR3E0Dom1nNErj9XnfjFog&s" },
     { name: "Sabudana vada", prices: { S: 4.99 }, img: "https://vegecravings.com/wp-content/uploads/2017/07/sabudana-vada-recipe-step-by-step-instructions.jpg" },
     { name: "Bread Pakaoda", prices: { S: 4.99 }, img: "https://static.toiimg.com/thumb/84629641.cms?imgsize=326457&width=800&height=800" },
@@ -117,6 +117,7 @@ const CategoryPage: React.FC = () => {
       quantity,
       pack: size,
       option,
+      source: categoryName
     };
     const updatedCart = [...cart, updatedItem];
     setCart(updatedCart);
@@ -138,6 +139,7 @@ const CategoryPage: React.FC = () => {
       >
         ← Back
       </button>
+      
       {items.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {items.map((item, index) => {
@@ -151,12 +153,168 @@ const CategoryPage: React.FC = () => {
                 <h3 className="text-xl font-semibold text-orange-900">{item.name}</h3>
                 
                 <p className="text-lg text-gray-700">
-                  Price: {item.name === "Gulab Jamun" ? (1).toFixed(2) + " AUD / piece" : item.name === "Bobbatlu" ? (2).toFixed(2) + " AUD / piece" : item.prices[selectedSize].toFixed(2) + " AUD"}
+                  Price: ${item.name === "Gulab Jamun" ? (customQuantity * 1).toFixed(2) : item.name === "Bobbatlu" ? (customQuantity * 2).toFixed(2) : item.prices[selectedSize].toFixed(2)} AUD
                 </p>
+                {categoryName === "Pickles" && (
+  <div className="mt-4">
+    {["250g", "500g", "1000g"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}              
+                
+{categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
+  <div className="mt-4">
+    {["S", "M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+{categoryName === "Fry Items" && (
+  <div className="mt-4">
+    {["S", "M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+{categoryName === "Rice Items" && (
+  <div className="mt-4">
+    {["S", "M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+{categoryName === "Curries" && (
+  <div className="mt-4">
+    {["S", "M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+{categoryName === "Liquids" && (
+  <div className="mt-4">
+    {["S", "M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+{categoryName === "Starters" && (
+  <div className="mt-4">
+    {["M", "L"].map((size) => (
+      <label key={size} className="inline-flex items-center mr-4">
+        <input
+          type="radio"
+          name={`size-${index}`}
+          value={size}
+          checked={selectedSize === size}
+          onChange={() => setSelectedSize(size)}
+          className="form-radio h-4 w-4 text-orange-600"
+        />
+        <span className="ml-2">{size}</span>
+      </label>
+    ))}
+  </div>
+)}
+
+              {/* Special Messages for Hots category items */}
+              {categoryName === "Hots" && (
+                  <div className="mt-2 text-sm text-gray-500">
+                    {item.name === "Mirchi Bajji" || item.name === "Alu Bajji" || item.name === "Onion Bajji" || item.name === "Vankaya Bajji" || item.name === "Sabudana vada" ? (
+                      <p>Single plate consists of 4 pieces.</p>
+                    ) : item.name === "Bread Pakaoda" ? (
+                      <p>Single plate has 1 piece.</p>
+                    ) : null}
+                  </div>
+                )}
                 
                 
-                
-              
+
+                {/* Additional message for Paneer Bites and Potato Bites */}
+                {(item.name === "Paneer Bites" || item.name === "Potato Bites") && (
+                  <p className="text-sm text-gray-500 mt-2">
+                    {selectedSize === "M" ? "M: 5 pieces" : "L: 10 pieces"}
+                  </p>
+                )}
+
+                {/* Custom Quantity Input for Gulab Jamun and Bobbatlu */}
+                {(item.name === "Gulab Jamun" || item.name === "Bobbatlu") && (
+                  <div className="mt-4">
+                    <label className="block text-gray-700">Quantity:</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={customQuantity}
+                      onChange={(e) => setCustomQuantity(Number(e.target.value))}
+                      className="border border-gray-300 rounded-md p-2 w-20 text-center"
+                    />
+                  </div>
+                )}
+
                 {/* Wet/Dry Option for Starters */}
                 {categoryName === "Starters" && !(item.name === "Potato Bites" || item.name === "Crispy Corn" || item.name === "Paneer Bites") && (
                   <div className="mt-4 flex justify-center">
@@ -174,181 +332,33 @@ const CategoryPage: React.FC = () => {
                     </button>
                   </div>
                 )}
-                
-
-                {categoryName === "Pickles" && (
-                  <div className="mt-4">
-                    {["250g", "500g", "1000g", "5000g"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
-                  <div className="mt-4">
-                    {["S", "M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Fry Items" && (
-                  <div className="mt-4">
-                    {["S", "M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Rice Items" && (
-                  <div className="mt-4">
-                    {["S", "M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Curries" && (
-                  <div className="mt-4">
-                    {["S", "M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Liquids" && (
-                  <div className="mt-4">
-                    {["S", "M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {categoryName === "Starters" && (
-                  <div className="mt-4">
-                    {["M", "L"].map((size) => (
-                      <label key={size} className="inline-flex items-center mr-4">
-                        <input
-                          type="radio"
-                          name={`size-${index}`}
-                          value={size}
-                          checked={selectedSize === size}
-                          onChange={() => setSelectedSize(size)}
-                          className="form-radio h-4 w-4 text-orange-600"
-                        />
-                        <span className="ml-2">{size}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-
-                {/* Special Messages for Hots category items */}
-                {categoryName === "Hots" && (
-                  <div className="mt-2 text-sm text-gray-500">
-                    {item.name === "Mirchi Bajji" || item.name === "Alu Bajji" || item.name === "Onion Bajji" || item.name === "Vankaya Bajji" || item.name === "Sabudana vada" ? (
-                      <p>Single plate consists of 4 pieces.</p>
-                    ) : item.name === "Bread Pakaoda" ? (
-                      <p>Single plate has 1 piece.</p>
-                    ) : null}
-                  </div>
-                )}
-
                 {/* Quantity Adjustment for other items */}
-                {(
-                  <div className="flex justify-center items-center mt-4">
-                    <button
-                      onClick={() => {
-                        const newQuantity = customQuantity - 1;
-                        setCustomQuantity(newQuantity > 0 ? newQuantity : 1); // Prevent negative quantity
-                      }}
-                      className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
-                    >
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      min="1"
-                      value={customQuantity}
-                      onChange={(e) => setCustomQuantity(Number(e.target.value))}
-                      className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
-                    />
-                    <button
-                      onClick={() => {
-                        setCustomQuantity(customQuantity + 1); // Increment quantity
-                      }}
-                      className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
-                    >
-                      +
-                    </button>
-                  </div>
-                )}
-
-                {/* Additional message for Paneer Bites and Potato Bites */}
-                {(item.name === "Paneer Bites" || item.name === "Potato Bites") && (
-                  <p className="text-sm text-gray-500 mt-2">
-                    {selectedSize === "M" ? "M: 5 pieces" : "L: 10 pieces"}
-                  </p>
-                )}
+                <div className="flex justify-center items-center mt-4">
+                  <button
+                    onClick={() => {
+                      const newQuantity = customQuantity - 1;
+                      setCustomQuantity(newQuantity > 0 ? newQuantity : 1); // Prevent negative quantity
+                    }}
+                    className="bg-red-500 text-white px-4 py-2 rounded-l-md hover:bg-red-600 transition duration-200"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    min="1"
+                    value={customQuantity}
+                    onChange={(e) => setCustomQuantity(Number(e.target.value))}
+                    className="border border-gray-300 rounded-md p-2 w-20 text-center mx-2"
+                  />
+                  <button
+                    onClick={() => {
+                      setCustomQuantity(customQuantity + 1); // Increment quantity
+                    }}
+                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
+                  >
+                    +
+                  </button>
+                </div>
 
                 {/* Add to Cart Button */}
                 <button

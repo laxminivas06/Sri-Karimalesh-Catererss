@@ -22,6 +22,7 @@ const MenuSection = () => {
         <h2 className="text-4xl font-bold text-center mb-12 text-orange-900">
           Our Menu Categories
         </h2>
+        
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {menuCategories.map((category, index) => (
             <Link key={index} to={`/category/${category.name}`} className="no-underline">
@@ -40,6 +41,7 @@ const MenuSection = () => {
                 </div>
               </div>
             </Link>
+            
           ))}
         </div>
       </div>
