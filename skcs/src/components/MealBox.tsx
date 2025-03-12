@@ -10,7 +10,6 @@ interface CartItem {
   source: "breakfast" | "lunch";
 }
 
-
 const MealBox: React.FC = () => {
   const [notification, setNotification] = useState<string>("");
   const [breakfastQuantities, setBreakfastQuantities] = useState<{ [key: string]: number }>({});
@@ -165,9 +164,9 @@ const MealBox: React.FC = () => {
           <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
             <h3 className="text-3xl font-semibold text-center mb-6">Breakfast Options</h3>
             <p className ="mb-4 text-center">Available Breakfast Items:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {breakfastOptions.map((item, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md p- 4 flex flex-col items-center">
+                <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
                   <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
                   <h4 className="text-lg font-semibold">{item.name}</h4>
                   <span className="text-lg font-bold">Price: ${item.price} AUD</span>
@@ -253,7 +252,7 @@ const MealBox: React.FC = () => {
                   >
                     {addedLunchItems[item.name] ? "Added" : "Add to Cart"}
                   </button>
-                 </div>
+                </div>
               ))}
             </div>
           </div>
