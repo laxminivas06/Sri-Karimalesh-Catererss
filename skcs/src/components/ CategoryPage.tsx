@@ -155,131 +155,19 @@ const CategoryPage: React.FC = () => {
                 <p className="text-lg text-gray-700">
                   Price: ${item.name === "Gulab Jamun" ? (customQuantity * 1).toFixed(2) : item.name === "Bobbatlu" ? (customQuantity * 2).toFixed(2) : item.prices[selectedSize].toFixed(2)} AUD
                 </p>
-                {categoryName === "Pickles" && (
-  <div className="mt-4">
-    {["250g", "500g", "1000g"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}              
-                
-{categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
-  <div className="mt-4">
-    {["S", "M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
+                        
 
-{categoryName === "Fry Items" && (
-  <div className="mt-4">
-    {["S", "M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
 
-{categoryName === "Rice Items" && (
-  <div className="mt-4">
-    {["S", "M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
 
-{categoryName === "Curries" && (
-  <div className="mt-4">
-    {["S", "M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
 
-{categoryName === "Liquids" && (
-  <div className="mt-4">
-    {["S", "M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
 
-{categoryName === "Starters" && (
-  <div className="mt-4">
-    {["M", "L"].map((size) => (
-      <label key={size} className="inline-flex items-center mr-4">
-        <input
-          type="radio"
-          name={`size-${index}`}
-          value={size}
-          checked={selectedSize === size}
-          onChange={() => setSelectedSize(size)}
-          className="form-radio h-4 w-4 text-orange-600"
-        />
-        <span className="ml-2">{size}</span>
-      </label>
-    ))}
-  </div>
-)}
+    
+
+
+
+
+
+
 
               {/* Special Messages for Hots category items */}
               {categoryName === "Hots" && (
@@ -336,7 +224,7 @@ const CategoryPage: React.FC = () => {
 
                 {/* Add to Cart Button */}
                 <button
-                  onClick={() => addToCart(item, customQuantity, selectedSize, selectedOption, index)}
+                  onClick={() => addToCart( item, customQuantity, selectedSize, selectedOption, index)}
                   className={`mt-4 px-4 py-2 rounded-md transition ${addedToCart[index] ? 'bg-green-600' : 'bg-gray-400'} text-white`}
                 >
                   {addedToCart[index] ? "Added to Cart" : "Add to Cart"}

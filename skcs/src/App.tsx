@@ -45,7 +45,7 @@ function App() {
             <Route path="/category/:categoryName" element={<CategoryPage />} />
 
             {/* 📦 Meal Box Page */}
-            <Route path="/mealbox" element={<><MealBox /><Contact /></>} />
+            <Route path="/meal-box" element={<><MealBox /><Contact /></>} />
 
             {/* ✈️ Trip Packages Page */}
             <Route path="/trip-packages" element={<><TripPackages /><Contact /></>} />

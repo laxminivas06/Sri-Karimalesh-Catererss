@@ -28,11 +28,23 @@ const MenuSection = () => {
             <Link key={index} to={`/category/${category.name}`} className="no-underline">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <div className="relative h-48 w-full">
-                  <img
-                    src={category.icon}
-                    alt={category.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  {category.icon.endsWith('.mp4') ? (
+                    <video
+                      className="absolute inset-0 w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                    >
+                      <source src={category.icon} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={category.icon}
+                      alt={category.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold text-orange-900 text-center">
@@ -41,7 +53,6 @@ const MenuSection = () => {
                 </div>
               </div>
             </Link>
-            
           ))}
         </div>
       </div>

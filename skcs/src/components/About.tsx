@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUtensils, FaLeaf, FaUser , FaClipboardList, FaSmile } from "react-icons/fa"; // Import icons from Font Awesome
+import { FaUtensils, FaLeaf, FaUserTie , FaClipboardList, FaSmile } from "react-icons/fa"; // Import icons from Font Awesome
 
 const About = () => {
   return (
@@ -123,7 +123,7 @@ const About = () => {
             <strong>Fresh Ingredients:</strong> Only the finest and freshest ingredients are used in every dish.
           </div>
           <div className="flex items-center">
-            <FaUser Tie className="text-orange-600 mr-4 text-3xl" />
+            <FaUserTie className="text-orange-600 mr-4 text-3xl" />
             <strong>Experienced Chefs:</strong> Our chefs bring years of expertise and passion to the table.
           </div>
           <div className="flex items-center">
