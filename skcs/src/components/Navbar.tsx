@@ -48,9 +48,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {/* <Link to="/menu" className="hover:text-orange-500 transition">Menu</Link> */}
-            {/* <Link to="/mealbox" className="hover:text-orange-500 transition">Daily Box</Link>
-            <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link> */}
+            
             <Link to="/subscription" className="hover:text-orange-500 transition">Subscription</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>
@@ -74,15 +72,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden bg-gray-100 text-gray-800 py-2 rounded-md shadow-md">
             <div className="px-4 space-y-2">
-              {/* <button onClick={() => handleNavigation("/menu")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-                Menu
-              </button>
-              <button onClick={() => handleNavigation("/mealbox")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-                Daily Box
-              </button>
-              <button onClick={() => handleNavigation("/trip-packages")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-                Trip Packages
-              </button> */}
+              
               <button onClick={() => handleNavigation("/subscription")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
               Subscription
               </button>

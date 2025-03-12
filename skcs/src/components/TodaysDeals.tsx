@@ -8,11 +8,7 @@ const deals = [
     title: "Ugadhi Special Offer",
     description: "Get  Special Discount on our  Catering package!",
   },
-  {
-    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1741797005/sk_catering_available_fzkhio.png",
-    title: "Catering Services Available",
-    description: "Delicious Catering, Memorable Moments! 🍽️🎉",
-  },
+  
   {
     video: "https://res.cloudinary.com/dt3effj06/video/upload/v1741797387/SK_13_march_2025_New_a5ivkf.mp4",
     title: "13 March 2025",

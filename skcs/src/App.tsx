@@ -14,8 +14,8 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Subscription from "./components/Subscription";
-import TodaysDeals from "./components/TodaysDeals"; // ✅ Import the TodaysDeals component
-import ContainerPage from "./components/ContainerPage"; // Import the new ContainerPage
+import TodaysDeals from "./components/TodaysDeals";
+import ContainerPage from "./components/ContainerPage";
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
             <Route path="/category/:categoryName" element={<CategoryPage />} />
 
             {/* 📦 Meal Box Page */}
-            <Route path="/mealbox" element={<><MealBox /><Contact /></>} />
+            <Route path="/meal-box" element={<><MealBox /><Contact /></>} />
 
             {/* ✈️ Trip Packages Page */}
             <Route path="/trip-packages" element={<><TripPackages /><Contact /></>} />
@@ -69,7 +69,10 @@ function App() {
             <Route path="/todays-deals" element={<TodaysDeals />} />
 
             {/* 📦 Container Page */}
-            <Route path="/container-page" element={<ContainerPage />} /> {/* Add the new route */}
+            <Route path="/container-page" element={<ContainerPage />} />
+
+            {/* 404 Not Found */}
+            <Route path="*" element={<h2>404 Not Found</h2>} />
           </Routes>
         </main>
 
