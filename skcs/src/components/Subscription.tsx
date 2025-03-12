@@ -82,7 +82,7 @@ const Subscription = () => {
             <FontAwesomeIcon icon={faCalendarAlt} className="w-12 h-12 mr-4 text-green-600" />
             <p className="text-gray-700 text-xl">Ideal for consistent meal planning with <span className="font-bold text-green-700">20 days + 2 FREE days</span>.</p>
           </div>
-          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <p className="text-red-600 font-semibold text-lg mb-4">Note: Monthly plan is available only for 5 days (Monday to Friday).</p>
           <ul className="list-none mb-6">
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-3" />
@@ -121,7 +121,7 @@ const Subscription = () => {
             <FontAwesomeIcon icon={faClock} className="w-12 h-12 mr-4 text-yellow-600" />
             <p className="text-gray-700 text-xl">Great for long-term savings with <span className="font-bold text-yellow-700">60 days + 5 FREE days</span>.</p>
           </div>
-          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <p className="text-red-600 font-semibold text-lg mb-4">Note: Quarterly plan is available only for 5 days (Monday to Friday).</p>
           <ul className="list-none mb-6">
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
