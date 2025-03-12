@@ -4,7 +4,7 @@ import { motion } from "framer-motion"; // Import Framer Motion for animations
 
 const deals = [
   {
-    image: "https://example.com/deal1.jpg",
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1741767746/Sri_Karimalesh_Catering_Comming_Soon_om4gri.png",
     title: "Special Lunch Offer",
     description: "Get 20% off on our special lunch package!",
     price: "$15",
@@ -30,6 +30,7 @@ const deals = [
     discount: "",
     items: ["Samosa", "Pakora"],
   },
+  
 ];
 
 const TodaysDeals = () => {
