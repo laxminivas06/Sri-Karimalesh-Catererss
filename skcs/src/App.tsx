@@ -63,10 +63,10 @@ function App() {
             <Route path="/about" element={<><About /><Contact /></>} />
 
             {/* 📅 Subscription Page */}
-            <Route path="/subscription" element={<Subscription />} />
+            <Route path="/subscription" element={<><Subscription /><Contact /></>} />
 
             {/* 🎉 Today's Deals Page */}
-            <Route path="/todays-deals" element={<TodaysDeals />} />
+            <Route path="/todays-deals" element={<><TodaysDeals /><Contact /></>} />
 
             {/* 📦 Container Page */}
             <Route path="/container-page" element={<ContainerPage />} />

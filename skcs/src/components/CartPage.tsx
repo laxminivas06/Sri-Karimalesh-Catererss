@@ -38,7 +38,7 @@ const Cart: React.FC = () => {
   const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 mt-8">
       <h2 className="text-3xl font-bold text-center text-orange-900 mb-16">Shopping Cart</h2>
       {cart.length > 0 ? (
         <div className="grid grid-cols-1 gap-6">

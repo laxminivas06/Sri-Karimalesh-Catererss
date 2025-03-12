@@ -15,12 +15,12 @@ const About = () => {
         <img
           src="https://res.cloudinary.com/dt3effj06/image/upload/v1741512048/Fonal_gtvvfi.svg"
           alt="Sri Karimalesh Caterings Logo"
-          className="w-64 h-64 md:w-80 md:h-80 animate-pulse drop-shadow-lg"
+          className="w-max h-auto  animate-pulse drop-shadow-lg mx-auto mb-1 mt-20"
         />
       </motion.div>
 
       {/* Heading */}
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-6 mt-4 text-center">
         <motion.h2
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -44,7 +44,7 @@ const About = () => {
             <img
               src="https://static.vecteezy.com/system/resources/thumbnails/035/802/364/small/ai-generated-a-caucasian-boy-dressed-as-a-chef-and-preparing-food-in-kitchen-photo.JPG"
               alt="Chef at Sri Karimalesh Caterings"
-              className="rounded-lg shadow-2xl w-full max-w-md border-4 border-orange-300 transform hover:scale-105 transition-transform duration-300"
+              className="rounded-lg shadow-2xl w-300 h-600 border-4 border-orange-300 transform hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-black opacity-20 rounded-lg"></div>
           </div>

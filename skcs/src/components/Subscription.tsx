@@ -2,171 +2,217 @@ import React from "react";
 import WhatsAppButton from "./WhatsAppButton";
 import { motion } from "framer-motion"; // Import Framer Motion for animations
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faClock, faCalendarAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // Import the icons you want to use
+import { faUtensils, faClock, faCalendarAlt, faCheckCircle, faStar } from '@fortawesome/free-solid-svg-icons'; // Import the icons you want to use
 
 const Subscription = () => {
   const handleWhatsAppMessage = (packageType) => {
     switch (packageType) {
       case "Weekly":
-        return "I'd like to subscribe to the Weekly Package for $50, which includes 1 Lunch, 1 Snack, and 1 Tiffin, 4 times a week.";
+        return "I'd like to subscribe to the Weekly Package for $29.99 (Tiffin) or $41.99/$59.99 (Lunch).";
       case "Monthly":
-        return "I'd like to subscribe to the Monthly Package for $180, which includes 1 Lunch, 1 Snack, and 1 Tiffin, 22 times a month.";
-      case "6 Months":
-        return "I'd like to subscribe to the 6 Months Package for $1000, which includes 1 Lunch, 1 Snack, and 1 Tiffin, 6 times a week.";
-      case "Yearly":
-        return "I'd like to subscribe to the Yearly Package for $1800, which includes 1 Lunch, 1 Snack, and 1 Tiffin, 52 times a year.";
+        return "I'd like to subscribe to the Monthly Package for $114.99 (Tiffin) or $165.99/$249.99 (Lunch).";
+      case "Quarterly":
+        return "I'd like to subscribe to the Quarterly Package for $323.99 (Tiffin) or $389.99/$599.99 (Lunch).";
       default:
         return "";
     }
   };
 
+  const handleLearnMore = () => {
+    // Replace with your internal page route
+    window.location.href = "/meal-box"; // Example: Opens a page within the website
+  };
+
   return (
-    <div className="container mx-auto p-4 mt-20 ">
-      <h1 className="text-3xl font-bold mb-4 text-center">Subscription Packages</h1>
-      <div className="grid grid-cols-1 p-4 mt-20 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+    <div className="container mx-auto p-8 mt-20">
+      <h1 className="text-5xl font-bold mb-12 text-center">Subscription Packages</h1>
+      <div className="grid grid-cols-1 p-8 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Weekly Package */}
         <motion.div
-          className="border p-6 rounded shadow-lg bg-blue-100 hover:bg-blue-200 transition duration-300 h-96"
+          className="border p-10 rounded-2xl shadow-2xl bg-blue-100 hover:bg-blue-200 transition duration-300 h-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-2">Weekly Package</h2>
-          <div className="flex items-center mb-4">
-            <FontAwesomeIcon icon={faUtensils} className="w-10 h-10 mr-2 text-blue-600" />
-            <p className="text-gray-700">Perfect for those who want to enjoy fresh meals throughout the week.</p>
+          <h2 className="text-3xl font-bold mb-6">Weekly Plan</h2>
+          <div className="flex items-center mb-6">
+            <FontAwesomeIcon icon={faUtensils} className="w-12 h-12 mr-4 text-blue-600" />
+            <p className="text-gray-700 text-xl">Perfect for fresh meals from <span className="font-bold">Monday to Friday (5 days)</span>.</p>
           </div>
-          <ul className="list-none mb-4">
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-2" />
-              <span>1 Lunch</span>
+          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-6">
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
+              <span className="text-xl">Tiffin: $29.99 AUD</span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-2" />
-              <span>1 Snack</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-3" />
+              <span className="text-xl">Lunch (500ml): $41.99 AUD</span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-2" />
-              <span>1 Tiffin</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
+              <span className="text-xl">Lunch (750ml): $59.99 AUD</span>
             </li>
           </ul>
-          <p>Includes: 4 times a week</p>
-          <p className="font-semibold">Price: $50</p>
-          <div className="mt-4"> {/* Adjust the margin as needed */}
-  <WhatsAppButton 
-    text="Checkout Weekly Package" 
-    message={handleWhatsAppMessage("Weekly")} 
-  />
-</div>
+          <button
+            onClick={handleLearnMore}
+            className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-blue-700 transition duration-300 text-xl"
+          >
+            View Items Included
+          </button>
+          <WhatsAppButton
+            text="Checkout Weekly Package"
+            message={handleWhatsAppMessage("Weekly")}
+          />
         </motion.div>
 
-        {/* Monthly Package */}
+        {/* Monthly Package - Highlighted as Popular */}
         <motion.div
-          className="border p-6 rounded shadow-lg bg-green-100 hover:bg-green-200 transition duration-300 h-96"
+          className="border p-10 rounded-2xl shadow-2xl bg-green-100 hover:bg-green-200 transition duration-300 h-auto relative"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-2">Monthly Package</h2>
-          <div className="flex items-center mb-4">
-            <FontAwesomeIcon icon={faCalendarAlt} className="w-10 h-10 mr-2 text-green-600" />
-            <p className="text-gray-700">Ideal for those who want a consistent meal plan every month.</p>
+          <div className="absolute top-0 right-0 bg-yellow-400 text-black px-6 py-2 rounded-bl-2xl flex items-center">
+            <FontAwesomeIcon icon={faStar} className="mr-2" />
+            <span className="font-bold text-xl">Popular</span>
           </div>
-          <ul className="list-none mb-4">
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-2" />
-              <span>1 Lunch</span>
+          <h2 className="text-3xl font-bold mb-6">Monthly Plan</h2>
+          <div className="flex items-center mb-6">
+            <FontAwesomeIcon icon={faCalendarAlt} className="w-12 h-12 mr-4 text-green-600" />
+            <p className="text-gray-700 text-xl">Ideal for consistent meal planning with <span className="font-bold text-green-700">20 days + 2 FREE days</span>.</p>
+          </div>
+          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-6">
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-3" />
+              <span className="text-xl">Tiffin: $114.99 AUD</span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-red-600 mr-2" />
-              <span>1 Snack</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-red-600 mr-3" />
+              <span className="text-xl">Lunch (500ml): $165.99 AUD </span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-yellow-600 mr-2" />
-              <span>1 Tiffin</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-yellow-600 mr-3" />
+              <span className="text-xl">Lunch (750ml): $249.99 AUD </span>
             </li>
           </ul>
-          <p>Includes: 22 times a month</p>
-          <p className="font-semibold">Price: $180</p>
-          <div className="mt-4"> {/* Adjust the margin as needed */}
-  <WhatsAppButton 
-    text="Checkout Monthly Package" 
-    message={handleWhatsAppMessage("Monthly")} 
-  />
-</div>
+          <button
+            onClick={handleLearnMore}
+            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-green-700 transition duration-300 text-xl"
+          >
+           View Items Included
+          </button>
+          <WhatsAppButton
+            text="Checkout Monthly Package"
+            message={handleWhatsAppMessage("Monthly")}
+          />
         </motion.div>
 
-        {/* 6 Months Package */}
+        {/* Quarterly Package */}
         <motion.div
-          className="border p-6 rounded shadow-lg bg-yellow-100 hover:bg-yellow-200 transition duration-300 h-96"
+          className="border p-10 rounded-2xl shadow-2xl bg-yellow-100 hover:bg-yellow-200 transition duration-300 h-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold mb-2">6 Months Package</h2>
-          <div className="flex items-center mb-4">
-            <FontAwesomeIcon icon={faClock} className="w-10 h-10 mr-2 text-yellow-600" />
-            <p className="text-gray-700">Great for long-term meal planning and savings.</p>
+          <h2 className="text-3xl font-bold mb-6">Quarterly Plan</h2>
+          <div className="flex items-center mb-6">
+            <FontAwesomeIcon icon={faClock} className="w-12 h-12 mr-4 text-yellow-600" />
+            <p className="text-gray-700 text-xl">Great for long-term savings with <span className="font-bold text-yellow-700">60 days + 5 FREE days</span>.</p>
           </div>
-          <ul className="list-none mb-4">
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-2" />
-              <span>1 Lunch</span>
+          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-6">
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
+              <span className="text-xl">Tiffin: $323.99 AUD</span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-2" />
-              <span>1 Snack</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
+              <span className="text-xl">Lunch (500ml): $389.99 AUD</span>
             </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-2" />
-              <span>1 Tiffin</span>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-3" />
+              <span className="text-xl">Lunch (750ml): $599.99 AUD</span>
             </li>
           </ul>
-          <p>Includes: 6 times a week</p>
-          <p className="font-semibold">Price: $1000</p>
-          <div className="mt-4"> {/* Adjust the margin as needed */}
-  <WhatsAppButton 
-    text="Checkout6 Months Package" 
-    message={handleWhatsAppMessage("6 Months")} 
-  />
-</div>
+          <button
+            onClick={handleLearnMore}
+            className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-yellow-700 transition duration-300 text-xl"
+          >
+           View Items Included
+          </button>
+          <WhatsAppButton
+            text="Checkout Quarterly Package"
+            message={handleWhatsAppMessage("Quarterly")}
+          />
         </motion.div>
+      </div>
 
-        {/* Yearly Package */}
-        <motion.div
-          className="border p-6 rounded shadow-lg bg-red-100 hover:bg-red-200 transition duration-300 h-96"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <h2 className="text-xl font-bold mb-2">Yearly Package</h2>
-          <div className="flex items-center mb-4">
-            <FontAwesomeIcon icon={faCalendarAlt} className="w-10 h-10 mr-2 text-red-600" />
-            <p className="text-gray-700">The best value for those committed to healthy eating all year round.</p>
+      {/* New Container for Healthy Food vs Junk Food */}
+      <div className="mt-12 p-8 bg-gray-100 rounded-2xl shadow-lg">
+        <h2 className="text-4xl font-bold mb-6 text-center">Healthy Food vs. Junk Food</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Healthy Food Section */}
+          <div className="flex flex-col items-center">
+            <img src="https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg" alt="Healthy Food" className="w-full h-auto mb-4" />
+            <h2 className="text-3xl font-bold mb-4">Healthy Food</h2>
+            <p className="text-lg">Packed with nutrients, healthy foods support overall well-being.</p>
           </div>
-          <ul className="list-none mb-4">
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-2" />
-              <span>1 Lunch</span>
-            </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-2" />
-              <span>1 Snack</span>
-            </li>
-            <li className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-2" />
-              <span>1 Tiffin</span>
-            </li>
+
+          {/* Junk Food Section */}
+          <div className="flex flex-col items-center">
+            <img src="https://t4.ftcdn.net/jpg/03/14/36/33/360_F_314363347_jiMEfkFWHqJ9J5r3IjihtTlvyf7ECYpl.jpg" alt="Junk Food" className="w-full h-auto mb-4" />
+            <h2 className="text-3xl font-bold mb-4">Junk Food</h2>
+            <p className="text-lg">High in calories and low in nutrients, junk food can lead to health issues.</p>
+          </div>
+        </div>
+
+        {/* Video Section */}
+        <div className="mt-12">
+          <h2 className="text-4xl font-bold mb-6 text-center">Watch and Learn</h2>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/xk43j2A_BNU"
+            title="Healthy Eating vs Junk Food"
+            frameBorder="0"
+            allowFullScreen
+            className="mx-auto"
+          ></iframe>
+        </div>
+
+        {/* Negatives of Junk Food */}
+        <div className="mt-12 p-8 bg-red-100 rounded-2xl shadow-lg">
+          <h2 className="text-4xl font-bold mb-6 text-center">Negatives of Junk Food</h2>
+          <ul className="list-disc list-inside mb-6">
+            <li className="text-lg mb-2"> Increases the risk of obesity and related diseases.</li>
+            <li className="text-lg mb-2">Can lead to heart disease due to high levels of trans fats.</li>
+            <li className="text-lg mb-2">Contributes to diabetes and insulin resistance.</li>
+            <li className="text-lg mb-2">May cause digestive issues due to low fiber content.</li>
+            <li className="text-lg mb-2">Often contains high levels of sugar, leading to energy crashes.</li>
           </ul>
-          <p>Includes: 52 times a year</p>
-          <p className="font-semibold">Price: $1800</p>
-          <div className="mt-4"> {/* Adjust the margin as needed */}
-  <WhatsAppButton 
-    text="Checkout Yearly Package" 
-    message={handleWhatsAppMessage("Yearly")} 
-  />
-</div>
-        </motion.div>
+        </div>
+
+        {/* Quotes Section */}
+        <div className="mt-12 p-8 bg-gray-200 rounded-2xl shadow-lg">
+          <h2 className="text-4xl font-bold mb-6 text-center">Quotes on Healthy Eating</h2>
+          <blockquote className="text-lg italic mb-4">"ఆహారం మన ఆరోగ్యానికి మూలం." (Food is the source of our health.)</blockquote>
+          <blockquote className="text-lg italic mb-4">"स्वस्थ भोजन से ही स्वस्थ जीवन संभव है।" (A healthy life is possible only with healthy food.)</blockquote>
+          <blockquote className="text-lg italic mb-4">"జంక్ ఫుడ్ తినడం అనేది ఆరోగ్యానికి హానికరం." (Eating junk food is harmful to health.)</blockquote>
+          <blockquote className="text-lg italic mb-4">"सही आहार से ही सही जीवन संभव है।" (A proper diet leads to a proper life.)</blockquote>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 p-8 bg-blue-100 rounded-2xl shadow-lg text-center">
+          <h2 className="text-4xl font-bold mb-6">Subscribe to Sri Karimalesh Caterers</h2>
+          <p className="text-lg mb-4">Enjoy delicious and healthy meals delivered to your doorstep.</p>
+          <WhatsAppButton
+            text="Subscribe Now"
+            message="I'd like to subscribe to Sri Karimalesh Caterers for healthy meal options."
+          />
+        </div>
       </div>
     </div>
   );

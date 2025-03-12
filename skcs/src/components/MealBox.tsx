@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
 
-const MealBox = () => {
-  const [notification, setNotification] = useState(""); // State for notification message
-  const [breakfastQuantities, setBreakfastQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for breakfast items
-  const [lunchQuantities, setLunchQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for lunch items
-  const [cart, setCart] = useState<{ name: string; price: number | { "500ml": number; "750ml": number }; img: string; quantity: number; pack: string; option: string; source: "breakfast" | "lunch" }[]>([]); // State for cart items
-  const [addedBreakfastItems, setAddedBreakfastItems] = useState<{ [key: string]: boolean }>({}); // State for added breakfast items
-  const [addedLunchItems, setAddedLunchItems] = useState<{ [key: string]: boolean }>({}); // State for added lunch items
-  const [totalAmount, setTotalAmount] = useState(0); // State for total amount
-  const [lunchContainerSize, setLunchContainerSize] = useState<{ [key: string]: "500ml" | "750ml" }>({}); // Track container sizes for lunch items
+interface CartItem {
+  name: string;
+  price: number | { "500ml": number; "750ml": number };
+  img: string;
+  quantity: number;
+  pack: string;
+  option: string;
+  source: "breakfast" | "lunch";
+}
+
+const MealBox: React.FC = () => {
+  const [notification, setNotification] = useState<string>("");
+  const [breakfastQuantities, setBreakfastQuantities] = useState<{ [key: string]: number }>({});
+  const [lunchQuantities, setLunchQuantities] = useState<{ [key: string]: number }>({});
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [addedBreakfastItems, setAddedBreakfastItems] = useState<{ [key: string]: boolean }>({});
+  const [addedLunchItems, setAddedLunchItems] = useState<{ [key: string]: boolean }>({});
+  const [totalAmount, setTotalAmount] = useState<number>(0);
+  const [lunchContainerSize, setLunchContainerSize] = useState<{ [key: string]: "500ml" | "750ml" }>({});
 
   const breakfastOptions = [
     { name: "Poha", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741683945/Poha_th9h0c.jpg", price: 5.99 },
@@ -32,13 +42,16 @@ const MealBox = () => {
   ];
 
   useEffect(() => {
-    // Load cart from local storage on component mount
     const savedCart = localStorage.getItem("shoppingCart");
     if (savedCart) {
-      const parsedCart = JSON.parse(savedCart);
-      setCart(parsedCart);
-      const total = parsedCart.reduce((acc: number, item: { price: number; quantity: number }) => acc + item.price * item.quantity, 0);
-      setTotalAmount(total);
+      try {
+        const parsedCart = JSON.parse(savedCart) as CartItem[];
+        setCart(parsedCart);
+        const total = parsedCart.reduce((acc, item) => acc + (typeof item.price === 'number' ? item.price : item.price[lunchContainerSize[item.name] || "500ml"]) * item.quantity, 0);
+        setTotalAmount(total);
+      } catch (error) {
+        console.error("Error parsing cart from localStorage:", error);
+      }
     }
   }, []);
 
@@ -48,18 +61,16 @@ const MealBox = () => {
     const containerSize = type === "lunch" ? lunchContainerSize[itemName] : null;
 
     if (item && quantity > 0) {
-      const price = containerSize ? (item.price as { [key: string]: number })[containerSize] : item.price;
+      const price = containerSize ? (item.price as { [key: string]: number })[containerSize] : item.price as number;
       const existingItemIndex = cart.findIndex(cartItem => cartItem.name === item.name && cartItem.pack === (type === "breakfast" ? "Single Plate" : `${containerSize} Container`));
 
       if (existingItemIndex > -1) {
-        // Update quantity of existing item in cart
         const updatedCart = [...cart];
         updatedCart[existingItemIndex].quantity += quantity;
         setCart(updatedCart);
         localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
       } else {
-        // Add new item to cart
-        const cartItem = {
+        const cartItem: CartItem = {
           name: item.name,
           price: price,
           img: item.img,
@@ -73,8 +84,7 @@ const MealBox = () => {
         localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
       }
 
-      // Update total amount
-      setTotalAmount(prevTotal => prevTotal + (typeof price === 'number' ? price : 0) * quantity);
+      setTotalAmount(prevTotal => prevTotal + price * quantity);
 
       if (type === "breakfast") {
         setAddedBreakfastItems(prev => ({ ...prev, [itemName]: true }));
@@ -86,7 +96,6 @@ const MealBox = () => {
         setNotification(`Added ${item.name} from Lunch!`);
       }
 
-      // Clear notification after 2 seconds
       setTimeout(() => setNotification(""), 2000);
     } else {
       console.error("Item not found or quantity is zero:", itemName);
@@ -97,12 +106,12 @@ const MealBox = () => {
     if (type === "breakfast") {
       setBreakfastQuantities(prev => {
         const newQuantity = (prev[itemName] || 0) + change;
-        return { ...prev, [itemName]: Math.max(newQuantity, 0) }; // Prevent negative quantity
+        return { ...prev, [itemName]: Math.max(newQuantity, 0) };
       });
     } else {
       setLunchQuantities(prev => {
         const newQuantity = (prev[itemName] || 0) + change;
-        return { ...prev, [itemName]: Math.max(newQuantity, 0) }; // Prevent negative quantity
+        return { ...prev, [itemName]: Math.max(newQuantity, 0) };
       });
     }
   };
@@ -112,14 +121,12 @@ const MealBox = () => {
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-orange-900">Daily Box</h2>
 
-        {/* Notification Message */}
         {notification && (
           <div className="fixed top-16 right-4 bg-green-500 text-white text-sm px-4 py-2 rounded shadow-lg animate-fade">
             {notification}
           </div>
         )}
 
-        {/* Total Amount Display */}
         <div className="text-center mb-6">
           <h3 className="text-2xl font-semibold">Total Amount: ${totalAmount.toFixed(2)} AUD</h3>
         </div>
@@ -134,7 +141,6 @@ const MealBox = () => {
                 <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
                 <h4 className="text-lg font-semibold">{item.name}</h4>
                 <span className="text-lg font-bold">Price: ${item.price} AUD</span>
-                {/* Quantity Adjustment for Breakfast */}
                 <div className="flex justify-center items-center mt-4">
                   <button
                     onClick={() => handleQuantityChange(item.name, "breakfast", -1)}
@@ -168,7 +174,7 @@ const MealBox = () => {
         </div>
 
         {/* Lunch Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-green-100">
+        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
           <h3 className="text-3xl font-semibold text-center mb-6">Lunch Options</h3>
           <p className="mb-4 text-center">Available Lunch Items:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -176,39 +182,7 @@ const MealBox = () => {
               <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
                 <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
                 <h4 className="text-lg font-semibold">{item.name}</h4>
-                {/* Display price based on selected container size */}
-                <span className="text-lg font-bold">
-                  Price: {lunchContainerSize[item.name] ? `${lunchContainerSize[item.name]} - $${item.price[lunchContainerSize[item.name]]} AUD` : "Select Size"}
-                </span>
-                {/* Container Size Selection for Lunch */}
-                <div className="mt-4">
-                  <label className="mr-2">Select Container Size:</label>
-                  <div className="flex">
-                    <label className="mr-4">
-                      <input
-                        type="radio"
-                        name={`size-${item.name}`}
-                        value="500ml"
-                        checked={lunchContainerSize[item.name] === "500ml"}
-                        onChange={() => setLunchContainerSize(prev => ({ ...prev, [item.name]: "500ml" }))}
-                        className="form-radio h-4 w-4 text-orange-600"
-                      />
-                      <span className="ml-2">500ml</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name={`size-${item.name}`}
-                        value="750ml"
-                        checked={lunchContainerSize[item.name] === "750ml"}
-                        onChange={() => setLunchContainerSize(prev => ({ ...prev, [item.name]: "750ml" }))}
-                        className="form-radio h-4 w-4 text-orange-600"
-                      />
-                      <span className="ml-2">750ml</span>
-                    </label>
-                  </div>
-                </div>
-                {/* Quantity Adjustment for Lunch */}
+                <span className="text-lg font-bold">Price: 500ml - ${item.price["500ml"]} AUD, 750ml - ${item.price["750ml"]} AUD</span>
                 <div className="flex justify-center items-center mt-4">
                   <button
                     onClick={() => handleQuantityChange(item.name, "lunch", -1)}
@@ -230,41 +204,26 @@ const MealBox = () => {
                     +
                   </button>
                 </div>
+                <div className="mt-2">
+                  <label className="mr-2">Container Size:</label>
+                  <select
+                    value={lunchContainerSize[item.name] || "500ml"}
+                    onChange={(e) => setLunchContainerSize(prev => ({ ...prev, [item.name]: e.target.value as "500ml" | "750ml" } ))}
+                    className="border border-gray-300 rounded-md p-2"
+                  >
+                    <option value="500ml">500ml</option>
+                    <option value="750ml">750ml</option>
+                  </select>
+                </div>
                 <button
                   onClick={() => addToCart(item.name, "lunch")}
-                  className={`mt-2 p-2 rounded ${addedLunchItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+                  className={`mt-2 px-4 py-2 rounded-md ${addedLunchItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
                 >
                   {addedLunchItems[item.name] ? "Added" : "Add to Cart"}
                 </button>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Cart Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-gray-100 mb-12">
-          <h3 className="text-3xl font-semibold text-center mb-6">Cart Items</h3>
-          {cart.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6">
-              {cart.map((item, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md p-4 flex justify-between items-center">
-                  <div className="flex items-center">
-                    <img src={item.img} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
-                    <div>
-                      <h4 className="text-lg font-semibold">{item.name}</h4>
-                      <p className="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
-                      <p className="text-gray-700">Quantity: {item.quantity}</p>
-                      <p className="text-gray-700">Pack: {item.pack}</p>
-                      <p className="text-gray-700">Source: {item.source}</p> {/* Display the source here */}
-                    </div>
-                  </div>
-                  <p className="text-lg font-bold">Total: ${(typeof item.price === 'number' ? item.price * item.quantity : 0).toFixed(2)} AUD</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-gray-600">Your cart is empty.</p>
-          )}
         </div>
       </div>
     </section>

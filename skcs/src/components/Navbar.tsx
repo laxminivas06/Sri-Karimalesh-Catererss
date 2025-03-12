@@ -48,7 +48,9 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            
+          <Link to="/menu" className="hover:text-orange-500 transition">Catering</Link>
+          <Link to="/meal-box" className="hover:text-orange-500 transition">Daily Box</Link>
+          <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Package</Link>
             <Link to="/subscription" className="hover:text-orange-500 transition">Subscription</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>

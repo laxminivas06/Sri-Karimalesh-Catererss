@@ -75,20 +75,17 @@ const TripPackages = () => {
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                      1 Curries
+                      1 Currie
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                      Fry
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                       Chutney
                     </li>
-                    <li className="flex items-center">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                      Curd
-                    </li>
-                    <li className="flex items-center">
-                      <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                      Water Bottle
-                    </li>
+                    
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                       Sambar
