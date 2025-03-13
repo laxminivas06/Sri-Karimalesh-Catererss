@@ -34,6 +34,8 @@ const MenuSection = () => {
                       autoPlay
                       loop
                       muted
+                      playsInline // Prevent fullscreen on mobile devices
+                      controls={false} // Disable controls to prevent user interaction
                       style={{ objectFit: 'cover' }} // Ensure the video covers the container
                     >
                       <source src={category.icon} type="video/mp4" />
