@@ -9,7 +9,7 @@ const ContainerPage: React.FC = () => {
   return (
     <div className="relative bg-white py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Our FoodCategories</h2>
+        <h2 className="text-3xl font-bold text-center mb-8">Our Categories</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Catering Services Container */}
           <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
@@ -29,20 +29,20 @@ const ContainerPage: React.FC = () => {
             <h3 className="text-xl font-bold text-gray-800 mb-4">Daily Box</h3>
             <p className="text-sm text-gray-600 mb-4">Enjoy our daily meal boxes for breakfast and lunch.</p>
             <div className="space-y-2">
-              <Link
-                to="/meal-box" // Add query parameter for Lunch
-                aria-label="View Lunch Options"
-                className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
-              >
-                Lunch
-              </Link>
-              <Link
-                to="/meal-box" // Add query parameter for Breakfast
-                aria-label="View Breakfast Options"
-                className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
-              >
-                Breakfast
-              </Link>
+            <Link
+  to="/meal-box?meal=lunch" // Add query parameter for Lunch
+  aria-label="View Lunch Options"
+  className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4" // Add margin-right
+>
+  Lunch
+</Link>
+<Link
+  to="/meal-box?meal=breakfast" // Add query parameter for Breakfast
+  aria-label="View Breakfast Options"
+  className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
+>
+  Breakfast
+</Link>
             </div>
           </div>
 
@@ -78,7 +78,7 @@ const ContainerPage: React.FC = () => {
             <Link
               to="/subscription"
               aria-label="Explore Trip Packages"
-              className="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300"
+              className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300"
             >
               Explore Subscriptions
             </Link>
