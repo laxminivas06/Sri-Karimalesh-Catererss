@@ -34,7 +34,6 @@ const Cart: React.FC = () => {
     window.open(whatsappUrl, "_blank");
   };
 
-  // Calculate total amount for each item and overall total amount
   const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -66,14 +65,13 @@ const Cart: React.FC = () => {
         <p className="text-center text-gray-600">Your cart is empty.</p>
       )}
 
-      {/* Display total amount */}
       {cart.length > 0 && (
         <div className="mt-4 text-lg font-bold text-right">
           Total Amount: ${totalAmount.toFixed(2)} AUD
         </div>
       )}
 
- <div className="mt-8 flex justify-between">
+      <div className="mt-8 flex justify-between">
         <button
           onClick={() => navigate(-1)}
           className="bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition"
@@ -91,4 +89,4 @@ const Cart: React.FC = () => {
   );
 };
 
-export default Cart; 
+export default Cart;
