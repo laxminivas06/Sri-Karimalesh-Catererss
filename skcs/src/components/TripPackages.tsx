@@ -75,7 +75,7 @@ const TripPackages = () => {
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                      1 Currie
+                      1 Curry
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
