@@ -35,6 +35,8 @@ const Cart: React.FC = () => {
     const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     const message = `I would like to proceed with my order. Here are the details:\n${orderDetails}\nTotal Amount: $${totalAmount.toFixed(2)} AUD`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    console.log("WhatsApp URL:", whatsappUrl); // Debug log
     window.open(whatsappUrl, "_blank");
   };
 
