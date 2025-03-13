@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 const Cart: React.FC = () => {
   const [cart, setCart] = useState<{ name: string; price: number; img: string; quantity: number; pack: string; option: string; source: string }[]>([]);
   const navigate = useNavigate();

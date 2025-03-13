@@ -143,9 +143,7 @@ const CategoryPage: React.FC = () => {
       {items.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {items.map((item, index) => {
-            const [selectedSize, setSelectedSize] = useState(categoryName === "Pickles" ? "250g" : "S");
-            const [customQuantity, setCustomQuantity] = useState(1);
-            const [selectedOption, setSelectedOption] = useState("N/A");
+            
 
             return (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">

@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; // ✅ Import useNavigate
-import WhatsAppButton from "./WhatsAppButton"; // ✅ Import WhatsAppButton
+import React, { useState, useEffect, useRef } from "react"; // ✅ Import WhatsAppButton
 import { FaArrowDown } from "react-icons/fa"; // Import an icon for the button
 
 const quotes = [
