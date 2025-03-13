@@ -8,7 +8,16 @@ const Cart: React.FC = () => {
   useEffect(() => {
     const savedCart = localStorage.getItem("shoppingCart");
     console.log("Saved Cart:", savedCart); // Debug log
-    // ... rest of the code
+    if (savedCart) {
+      try {
+        const parsedCart = JSON.parse(savedCart);
+        console.log("Parsed Cart:", parsedCart); // Debug log
+        setCart(parsedCart);
+      } catch (error) {
+        console.error("Failed to parse shopping cart:", error);
+        setCart([]); // Reset cart if parsing fails
+      }
+    }
   }, []);
 
   const removeFromCart = (index: number) => {
@@ -62,8 +71,8 @@ const Cart: React.FC = () => {
       {cart.length > 0 && (
         <div className="mt-4 text-lg font-bold text-right">
           Total Amount: ${totalAmount.toFixed(2)} AUD
-        </div>
-      )}
+        </div >
+        )}
 
       <div className="mt-8 flex justify-between">
         <button
