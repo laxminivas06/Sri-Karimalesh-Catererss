@@ -34,6 +34,7 @@ const MenuSection = () => {
                       autoPlay
                       loop
                       muted
+                      style={{ objectFit: 'cover' }} // Ensure the video covers the container
                     >
                       <source src={category.icon} type="video/mp4" />
                       Your browser does not support the video tag.
