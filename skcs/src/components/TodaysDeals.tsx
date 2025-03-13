@@ -4,6 +4,12 @@ import { motion } from "framer-motion"; // Import Framer Motion for animations
 
 const deals = [
   {
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1741831336/sk_catering_available_Document_A4_gixgin.png",
+    title: "Services We Offer",
+    description: "We offer a wide range of catering services for all your special occasions. 🎉🍽️",
+  
+  },
+  {
     image: "https://res.cloudinary.com/dt3effj06/image/upload/v1741767746/Sri_Karimalesh_Catering_Comming_Soon_om4gri.png",
     title: "Ugadhi Special Offer",
     description: "Get  Special Discount on our  Catering package!",
