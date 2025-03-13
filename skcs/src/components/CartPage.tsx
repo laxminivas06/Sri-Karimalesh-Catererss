@@ -7,14 +7,8 @@ const Cart: React.FC = () => {
 
   useEffect(() => {
     const savedCart = localStorage.getItem("shoppingCart");
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch (error) {
-        console.error("Failed to parse shopping cart:", error);
-        setCart([]); // Reset cart if parsing fails
-      }
-    }
+    console.log("Saved Cart:", savedCart); // Debug log
+    // ... rest of the code
   }, []);
 
   const removeFromCart = (index: number) => {
