@@ -30,14 +30,14 @@ const ContainerPage: React.FC = () => {
             <p className="text-sm text-gray-600 mb-4">Enjoy our daily meal boxes for breakfast and lunch.</p>
             <div className="space-y-2">
               <Link
-                to="/meal-box?tab=lunch" // Add query parameter for Lunch
+                to="/meal-box" // Add query parameter for Lunch
                 aria-label="View Lunch Options"
                 className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
               >
                 Lunch
               </Link>
               <Link
-                to="/meal-box?tab=breakfast" // Add query parameter for Breakfast
+                to="/meal-box" // Add query parameter for Breakfast
                 aria-label="View Breakfast Options"
                 className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
               >

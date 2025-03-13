@@ -16,7 +16,7 @@ const categoryItems = {
     { name: "Potato Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.cookwithnabeela.com/wp-content/uploads/2024/05/AlooFry.webp" },
     { name: "Soya Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/2a4tlAUAGQI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD8rCaCp1vWprQ9__uxJrx68jGPPQ" },
     { name: "Egg Plant Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/a8WHXJrKOHI/maxresdefault.jpg" },
-    { name: "Cabbage Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/cabbage-stir-fry-recipe.jpg" },
+    { name: "Cabbage Fry", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://lh4.googleusercontent.com/S--PeValmjExVDYkf02IN3W1sN_pgJa0KHHwDM4BZhUkWm-B-lB9m05zAWCgsSOgffhCi9tIwyD1W1_LYc0nydGUFO3jN9qbtSS4B74Zup6vdm6HSu0178R9GIejyfVwgN72Y1g2" },
   ],
   Pickles: [
     { name: "Tomato Pickle", prices: { "250g": 7.99, "500g": 12.99, "1000g": 19.99  }, img: "https://www.archanaskitchen.com/images/archanaskitchen/Indian_Pickles/Spicy_Tomato_Pickle_Recipe_South_Indian_Thakkali_Thokku.jpg" },
@@ -143,7 +143,9 @@ const CategoryPage: React.FC = () => {
       {items.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {items.map((item, index) => {
-            
+            const [selectedSize, setSelectedSize] = useState(categoryName === "Pickles" ? "250g" : "S");
+            const [customQuantity, setCustomQuantity] = useState(1);
+            const [selectedOption, setSelectedOption] = useState("N/A");
 
             return (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
@@ -153,20 +155,12 @@ const CategoryPage: React.FC = () => {
                 <p className="text-lg text-gray-700">
                   Price: ${item.name === "Gulab Jamun" ? (customQuantity * 1).toFixed(2) : item.name === "Bobbatlu" ? (customQuantity * 2).toFixed(2) : item.prices[selectedSize].toFixed(2)} AUD
                 </p>
-                        
-
-
-
-
-
+                     
+{categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
+  <div className="mt-4">
     
-
-
-
-
-
-
-
+  </div>
+)}
               {/* Special Messages for Hots category items */}
               {categoryName === "Hots" && (
                   <div className="mt-2 text-sm text-gray-500">
@@ -219,10 +213,9 @@ const CategoryPage: React.FC = () => {
                   </div>
                 )}
                 
-
                 {/* Add to Cart Button */}
                 <button
-                  onClick={() => addToCart( item, customQuantity, selectedSize, selectedOption, index)}
+                  onClick={() => addToCart(item, customQuantity, selectedSize, selectedOption, index)}
                   className={`mt-4 px-4 py-2 rounded-md transition ${addedToCart[index] ? 'bg-green-600' : 'bg-gray-400'} text-white`}
                 >
                   {addedToCart[index] ? "Added to Cart" : "Add to Cart"}

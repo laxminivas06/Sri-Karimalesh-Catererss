@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const Cart: React.FC = () => {
   const [cart, setCart] = useState<{ name: string; price: number; img: string; quantity: number; pack: string; option: string; source: string }[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const savedCart = localStorage.getItem("shoppingCart");
-    console.log("Saved Cart:", savedCart); // Debug log
     if (savedCart) {
       try {
         const parsedCart = JSON.parse(savedCart);
-        console.log("Parsed Cart:", parsedCart); // Debug log
         setCart(parsedCart);
       } catch (error) {
         console.error("Failed to parse shopping cart:", error);
@@ -35,7 +34,6 @@ const Cart: React.FC = () => {
     const message = `I would like to proceed with my order. Here are the details:\n${orderDetails}\nTotal Amount: $${totalAmount.toFixed(2)} AUD`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
-    console.log("WhatsApp URL:", whatsappUrl); // Debug log
     window.open(whatsappUrl, "_blank");
   };
 
