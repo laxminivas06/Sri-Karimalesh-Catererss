@@ -50,8 +50,8 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8">
           <Link to="/menu" className="hover:text-orange-500 transition">Catering</Link>
           <Link to="/meal-box" className="hover:text-orange-500 transition">Daily Box</Link>
-          <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Package</Link>
-            <Link to="/subscription" className="hover:text-orange-500 transition">Subscription</Link>
+          <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link>
+            <Link to="/subscription" className="hover:text-orange-500 transition">Subscriptions</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>
             <Link to="/cart" className="relative">
@@ -79,10 +79,10 @@ const Navbar = () => {
               </button><button onClick={() => handleNavigation("/meal-box")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
               Daily Box
               </button><button onClick={() => handleNavigation("/trip-packages")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Trip Package
+              Trip Packages
               </button>
               <button onClick={() => handleNavigation("/subscription")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Subscription
+              Subscriptions
               </button>
               <button onClick={() => handleNavigation("/about")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
                 About Us
