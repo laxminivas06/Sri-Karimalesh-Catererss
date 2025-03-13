@@ -108,7 +108,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3 mt-overflow-hidden">
         <div className="whitespace-nowrap animate-slide">
           <p className="text-lg font-medium">
-            For your catering services, please inform us at least 3 days in advance!     Today's Deal! 🌿 Mint Coriander Rice with complimentary Semiya Payasam for just $9.99 AUD! 🍛✨ Order now and enjoy the meal! 😋🚀
+            For any services, please inform us at least 3 days in advance! || Today's Deal! 🌿 Mint Coriander Rice with complimentary Semiya Payasam for just $9.99 AUD! 🍛✨ Order now and enjoy the meal! 😋🚀
           </p>
          
         </div>
