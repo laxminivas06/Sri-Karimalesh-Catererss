@@ -32,7 +32,8 @@ const Cart: React.FC = () => {
       `Name: ${item.name}, Price: $${item.price.toFixed(2)} AUD, Quantity: ${item.quantity}, Pack: ${item.pack}, Option: ${item.option}, Source: ${item.source}`
     ).join('\n');
     
-    const message = `I would like to proceed with my order. Here are the details:\n${orderDetails}`;
+    const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    const message = `I would like to proceed with my order. Here are the details:\n${orderDetails}\nTotal Amount: $${totalAmount.toFixed(2)} AUD`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -71,8 +72,8 @@ const Cart: React.FC = () => {
       {cart.length > 0 && (
         <div className="mt-4 text-lg font-bold text-right">
           Total Amount: ${totalAmount.toFixed(2)} AUD
-        </div >
-        )}
+        </div>
+      )}
 
       <div className="mt-8 flex justify-between">
         <button
