@@ -71,6 +71,18 @@ const ContainerPage: React.FC = () => {
               Explore Packages
             </Link>
           </div>
+          {/* Subscription Packages Container */}
+          <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Subscription</h3>
+            <p className="text-sm text-gray-600 mb-4">Discover our thrilling subscription for an unforgettable experience!</p>
+            <Link
+              to="/subscription"
+              aria-label="Explore Trip Packages"
+              className="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300"
+            >
+              Explore Subscriptions
+            </Link>
+          </div>
         </div>
       </div>
     </div>
