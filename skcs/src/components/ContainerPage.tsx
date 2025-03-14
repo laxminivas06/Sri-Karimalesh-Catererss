@@ -34,7 +34,7 @@ const ContainerPage: React.FC = () => {
     <span className="text-red-700 text-lg mr-2">⚠️</span>
     <p className="text-sm font-semibold">
     Our <strong>Daily Box</strong> is updated <strong>every day</strong> with customized <strong>breakfast</strong> and <strong>lunch</strong> options! 🍽️  
-Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to explore the delicious items available for the day.  
+Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to explore the delicious items available .  
 For our latest daily updates, tap on <strong>Today's Deals</strong>.  
     </p>
   </div>
