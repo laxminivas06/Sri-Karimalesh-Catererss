@@ -6,9 +6,9 @@ const categoryItems = {
     { name: "Rava Kesari", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/kesari-recipe-1-500x500.jpg" },
     { name: "Gulab Jamun", prices: { 1: 7.99 }, img: "https://theartisticcook.com/wp-content/uploads/2024/10/Gulab-Jamun-with-Milk-Powder.jpg" },
     { name: "Carrot Halwa", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://i0.wp.com/kalimirchbysmita.com/wp-content/uploads/2016/01/Gajar-ka-Halwa-03.jpg" },
-    { name: "Semiya Payasam", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.ticklingpalates.com/wp-content/uploads/2022/04/semiya-payasam-recipe.jpg" },
+    { name: "Semiya Payasam", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-6SE9q-ChefnbARciUV2TySA2fiPlGCblg&s" },
     { name: "Chakra Pongali", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/anusha.pariti-gmail.com/Chakkra_Pongali_recipe_edited1.jpg" },
-    { name: "Double Ka Meeta", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://x9s2d6a3.delivery.rocketcdn.me/wp-content/uploads/2018/04/double-ka-meetha-25_1200x1200.jpg" },
+    { name: "Double Ka Meeta", prices: { S: 7.99, M: 10.99, L: 13.99 }, img: "https://x9s2d6a3.delivery.rocketcdn.com/wp-content/uploads/2018/04/double-ka-meetha-25_1200x1200.jpg" },
     { name: "Bobbatlu", prices: { 1: 7.99 }, img: "https://www.madhuseverydayindian.com/wp-content/uploads/2021/08/bobbatlu.jpg" },
   ],
   "Fry Items": [
@@ -68,16 +68,16 @@ const categoryItems = {
   Drinks: [
     { name: "Mango Lassi", prices: { S: 4.99 }, img: "https://www.yellowthyme.com/wp-content/uploads/2023/03/Mango-Lassi-08589.jpg" },
     { name: "Sweet Lassi", prices: { S: 4.99 }, img: "https://www.indianveggiedelight.com/wp-content/uploads/2023/01/sweet-lassi-recipe-featured.jpg" },
-    { name: "Salt Lassi", prices: { S: 4.99 }, img: "https://indiaphile.info/wp-content/uploads/2023/03/stp-salt-lassi-0065.jpg" },
+    { name: "Salt Lassi", prices: { S : 4.99 }, img: "https://indiaphile.info/wp-content/uploads/2023/03/stp-salt-lassi-0065.jpg" },
     { name: "Fruit Salad", prices: { S: 4.99 }, img: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/fruit-custard.jpg" },
   ],
   Starters: [
-    { name: "Veg Manchuria", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://chefadora.b-cdn.net/Screenshot_2024_10_01_140619_572a1d5d13.jpg" },
-    { name: "Baby Corn", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://cdn2.foodviva.com/static-content/food-images/chinese-recipes/baby-corn-manchurian/baby-corn-manchurian.jpg" },
-    { name: "Gobi", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/AXEzrUVD_XI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDjQi3nUJLrYEvsF5aHsHy7FSl68Q" },
-    { name: "Potato Bites", prices: {S: 4.99, M: 10.99, L: 13.99 }, img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741765878/otato_bites_iswov6.jpg" },
-    { name: "Crispy Corn", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://rakskitchen.net/wp-content/uploads/2022/01/crisp-corn-500x375.jpg" },
-    { name: "Paneer Bites", prices: { S: 4.99,M: 10.99, L: 13.99 }, img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741765951/paneer_ybn6v3.jpg" },
+    { name: "Veg Manchuria", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://chefadora.b-cdn.net/Screenshot_2024_10_01_140619_572a1d5d13.jpg" },
+    { name: "Baby Corn", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://cdn2.foodviva.com/static-content/food-images/chinese-recipes/baby-corn-manchurian/baby-corn-manchurian.jpg" },
+    { name: "Gobi", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://i.ytimg.com/vi/AXEzrUVD_XI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDjQi3nUJLrYEvsF5aHsHy7FSl68Q" },
+    { name: "Potato Bites", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741765878/otato_bites_iswov6.jpg" },
+    { name: "Crispy Corn", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://rakskitchen.net/wp-content/uploads/2022/01/crisp-corn-500x375.jpg" },
+    { name: "Paneer Bites", prices: { S: 4.99, M: 10.99, L: 13.99 }, img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741765951/paneer_ybn6v3.jpg" },
   ],
   Snacks: [
     { name: "Palak Pakodi", prices: { S: 4.99 }, img: "https://yummyindiankitchen.com/wp-content/uploads/2016/07/palak-pakoda-recipe.jpg" },
@@ -98,7 +98,7 @@ const CategoryPage: React.FC = () => {
   const navigate = useNavigate();
   const items = categoryItems[categoryName as keyof typeof categoryItems] || [];
 
-  const [cart, setCart] = useState<{ name: string; price: number; img: string; quantity: number; pack: string; option: string }[]>([]);
+  const [cart, setCart] = useState<{ name : string; price: number; img: string; quantity: number; pack: string; option: string }[]>([]);
   const [addedToCart, setAddedToCart] = useState<boolean[]>(Array(items.length).fill(false));
 
   useEffect(() => {
@@ -156,13 +156,19 @@ const CategoryPage: React.FC = () => {
                   Price: ${item.name === "Gulab Jamun" ? (customQuantity * 1).toFixed(2) : item.name === "Bobbatlu" ? (customQuantity * 2).toFixed(2) : item.prices[selectedSize].toFixed(2)} AUD
                 </p>
                      
-{categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
-  <div className="mt-4">
-    
-  </div>
-)}
-              {/* Special Messages for Hots category items */}
-              {categoryName === "Hots" && (
+                {categoryName === "Sweets" && item.name !== "Gulab Jamun" && item.name !== "Bobbatlu" && (
+                  <div className="mt-4">
+                    <label className="block text-gray-700">Size:</label>
+                    <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)} className="border border-gray-300 rounded-md p-2 w-full">
+                      {Object.keys(item.prices).map((size) => (
+                        <option key={size} value={size}>{size}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* Special Messages for Hots category items */}
+                {categoryName === "Hots" && (
                   <div className="mt-2 text-sm text-gray-500">
                     {item.name === "Mirchi Bajji" || item.name === "Alu Bajji" || item.name === "Onion Bajji" || item.name === "Vankaya Bajji" || item.name === "Sabudana vada" ? (
                       <p>Single plate consists of 4 pieces.</p>
@@ -171,13 +177,11 @@ const CategoryPage: React.FC = () => {
                     ) : null}
                   </div>
                 )}
-                
-                
 
                 {/* Additional message for Paneer Bites and Potato Bites */}
                 {(item.name === "Paneer Bites" || item.name === "Potato Bites") && (
                   <p className="text-sm text-gray-500 mt-2">
-                    {selectedSize === "M" ? "M: 5 pieces" : "L: 10 pieces"}
+                    {selectedSize === "M" ? "M: 5 pieces" : " L: 10 pieces"}
                   </p>
                 )}
 

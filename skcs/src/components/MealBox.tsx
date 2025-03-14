@@ -124,7 +124,7 @@ const MealBox = () => {
         </div>
 
         {/* Breakfast Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-yellow-100 mb-12">
+        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-6 md:p-12 bg-yellow-100 mb-12">
           <h3 className="text-3xl font-semibold text-center mb-6">Breakfast Options</h3>
           <p className="mb-4 text-center">Available Breakfast Items:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -167,7 +167,7 @@ const MealBox = () => {
         </div>
 
         {/* Lunch Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-green-100">
+        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-6 md:p-12 bg-green-100">
           <h3 className="text-3xl font-semibold text-center mb-6">Lunch Options</h3>
           <p className="mb-4 text-center">Available Lunch Items:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -241,7 +241,7 @@ const MealBox = () => {
         </div>
 
         {/* Cart Section */}
-        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-12 bg-gray-100 mb-12">
+        <div className="max-w-7xl mx-auto rounded-2xl shadow-xl overflow-hidden p-6 md:p-12 bg-gray-100 mb-12">
           <h3 className="text-3xl font-semibold text-center mb-6">Cart Items</h3>
           {cart.length > 0 ? (
             <div className="grid grid-cols-1 gap-6">
@@ -251,7 +251,7 @@ const MealBox = () => {
                     <img src={item.img} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
                     <div>
                       <h4 className="text-lg font-semibold">{item.name}</h4>
-                      <p className="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
+                      <p className ="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
                       <p className="text-gray-700">Quantity: {item.quantity}</p>
                       <p className="text-gray-700">Pack: {item.pack}</p>
                       <p className="text-gray-700">Source: {item.source}</p>
