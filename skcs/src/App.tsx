@@ -16,6 +16,7 @@ import About from "./components/About";
 import Subscription from "./components/Subscription";
 import TodaysDeals from "./components/TodaysDeals";
 import ContainerPage from "./components/ContainerPage";
+import Festival from "./components/Festival"; // Import the Festival component
 
 function App() {
   return (
@@ -70,6 +71,9 @@ function App() {
 
             {/* 📦 Container Page */}
             <Route path="/container-page" element={<ContainerPage />} />
+
+            {/* 🎉 Festival Page */}
+            <Route path="/festival" element={<Festival />} /> {/* New Route */}
 
             {/* 404 Not Found */}
             <Route path="*" element={<h2>404 Not Found</h2>} />

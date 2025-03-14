@@ -51,6 +51,7 @@ const Navbar = () => {
           <Link to="/menu" className="hover:text-orange-500 transition">Catering</Link>
           <Link to="/meal-box" className="hover:text-orange-500 transition">Daily Box</Link>
           <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link>
+          
             <Link to="/subscription" className="hover:text-orange-500 transition">Subscriptions</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>

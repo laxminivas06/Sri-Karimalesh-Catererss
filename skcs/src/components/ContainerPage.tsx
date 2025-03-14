@@ -25,26 +25,36 @@ const ContainerPage: React.FC = () => {
           </div>
 
           {/* Daily Box Container */}
-          <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Daily Box</h3>
-            <p className="text-sm text-gray-600 mb-4">Enjoy our daily meal boxes for breakfast and lunch.</p>
-            <div className="space-y-2">
-            <Link
-  to="/meal-box?meal=lunch" // Add query parameter for Lunch
-  aria-label="View Lunch Options"
-  className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4" // Add margin-right
->
-  Lunch
-</Link>
-<Link
-  to="/meal-box?meal=breakfast" // Add query parameter for Breakfast
-  aria-label="View Breakfast Options"
-  className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
->
-  Breakfast
-</Link>
-            </div>
-          </div>
+<div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105 relative">
+  <h3 className="text-xl font-bold text-gray-800 mb-4">Daily Box</h3>
+  <p className="text-sm text-gray-600 mb-4">Enjoy our daily meal boxes for <strong>breakfast</strong> and <strong>lunch</strong>.</p>
+
+  {/* Important Message */}
+  <div className="flex items-center justify-center bg-red-100 text-red-700 px-4 py-2 rounded-lg mb-4">
+    <span className="text-red-700 text-lg mr-2">⚠️</span>
+    <p className="text-sm font-semibold">
+      Our <strong>Daily Box</strong> is updated <strong>every day</strong> with customized <strong>breakfast</strong> and <strong>lunch</strong> options! 🍽️ Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to see what items are included.  
+      To know what type of things are included, just tap on <strong>Today's Deals</strong>.
+    </p>
+  </div>
+
+  <div className="space-y-2">
+    <Link
+      to="/meal-box?meal=lunch"
+      aria-label="View Lunch Options"
+      className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4"
+    >
+      Lunch
+    </Link>
+    <Link
+      to="/meal-box?meal=breakfast"
+      aria-label="View Breakfast Options"
+      className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
+    >
+      Breakfast
+    </Link>
+  </div>
+</div>
 
           {/* Today's Deals Container */}
           <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
@@ -72,17 +82,19 @@ const ContainerPage: React.FC = () => {
             </Link>
           </div>
           {/* Subscription Packages Container */}
+          {/* Subscription Packages Container */}
           <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Subscription</h3>
             <p className="text-sm text-gray-600 mb-4">Discover our thrilling subscription for an unforgettable experience!</p>
             <Link
               to="/subscription"
-              aria-label="Explore Trip Packages"
+              aria-label="Explore  Subscription"
               className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300"
             >
               Explore Subscriptions
             </Link>
           </div>
+          
         </div>
       </div>
     </div>

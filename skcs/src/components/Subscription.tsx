@@ -43,7 +43,7 @@ const Subscription = () => {
           <ul className="list-none mb-6">
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
-              <span className="text-xl">Tiffin: $29.99 AUD</span>
+              <span className="text-xl">Breakfast: $29.99 AUD</span>
             </li>
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-3" />
@@ -86,7 +86,7 @@ const Subscription = () => {
           <ul className="list-none mb-6">
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-3" />
-              <span className="text-xl">Tiffin: $114.99 AUD</span>
+              <span className="text-xl">Breakfast: $114.99 AUD</span>
             </li>
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-red-600 mr-3" />
@@ -125,7 +125,7 @@ const Subscription = () => {
           <ul className="list-none mb-6">
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
-              <span className="text-xl">Tiffin: $323.99 AUD</span>
+              <span className="text-xl">Breakfast: $323.99 AUD</span>
             </li>
             <li className="flex items-center mb-4">
               <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
