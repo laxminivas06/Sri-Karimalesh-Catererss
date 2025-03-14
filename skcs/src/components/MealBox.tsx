@@ -20,7 +20,7 @@ const MealBox = () => {
   ];
 
   const lunchOptions = [
-    { name: "Mint Coriander Rice", img: "https://i0.wp.com/www.tomatoblues.com/wp-content/uploads/2012/02/DSC_0195.jpg?fit=1192%2C1800&ssl=1", price: { "500ml": 9.99, "750ml": 13.99 } },
+    { name: "Mint Coriander Rice", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741975360/pudina_hsphhm.jpg", price: { "500ml": 9.99, "750ml": 13.99 } },
     { name: "Lemon Rice", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741684265/Lemon_rice_sdzeca.jpg", price: { "500ml": 7.99, "750ml": 11.99 } },
     { name: "Pulihora (Tamarind Rice)", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741684265/Tamarind_rice_pipade.jpg", price: { "500ml": 6.99, "750ml": 10.99 } },
     { name: "Tomato Rice", img: "https://res.cloudinary.com/dt3effj06/image/upload/v1741684872/Tomato_Rice_wixx29.jpg", price: { "500ml": 7.99, "750ml": 11.99 } },
