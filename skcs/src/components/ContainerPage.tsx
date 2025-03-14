@@ -33,8 +33,9 @@ const ContainerPage: React.FC = () => {
   <div className="flex items-center justify-center bg-red-100 text-red-700 px-4 py-2 rounded-lg mb-4">
     <span className="text-red-700 text-lg mr-2">⚠️</span>
     <p className="text-sm font-semibold">
-      Our <strong>Daily Box</strong> is updated <strong>every day</strong> with customized <strong>breakfast</strong> and <strong>lunch</strong> options! 🍽️ Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to see what items are included.  
-      To know what type of things are included, just tap on <strong>Today's Deals</strong>.
+    Our <strong>Daily Box</strong> is updated <strong>every day</strong> with customized <strong>breakfast</strong> and <strong>lunch</strong> options! 🍽️  
+Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to explore the delicious items available for the day.  
+For our latest daily updates, tap on <strong>Today's Deals</strong>.  
     </p>
   </div>
 
