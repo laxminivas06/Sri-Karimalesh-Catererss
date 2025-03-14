@@ -24,39 +24,39 @@ const Subscription = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 mt-20">
-      <h1 className="text-5xl font-bold mb-12 text-center">Subscription Packages</h1>
-      <div className="grid grid-cols-1 p-8 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="container mx-auto p-4 md:p-8 mt-10 md:mt-20">
+      <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">Subscription Packages</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Weekly Package */}
         <motion.div
-          className="border p-10 rounded-2xl shadow-2xl bg-blue-100 hover:bg-blue-200 transition duration-300 h-auto"
+          className="border p-6 md:p-10 rounded-2xl shadow-2xl bg-blue-100 hover:bg-blue-200 transition duration-300 h-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-3xl font-bold mb-6">Weekly Plan</h2>
-          <div className="flex items-center mb-6">
-            <FontAwesomeIcon icon={faUtensils} className="w-12 h-12 mr-4 text-blue-600" />
-            <p className="text-gray-700 text-xl">Perfect for fresh meals from <span className="font-bold">Monday to Friday (5 days)</span>.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Weekly Plan</h2>
+          <div className="flex items-center mb-4">
+            <FontAwesomeIcon icon={faUtensils} className="w-10 h-10 mr-2 text-blue-600" />
+            <p className="text-gray-700 text-lg">Perfect for fresh meals from <span className="font-bold">Monday to Friday (5 days)</span>.</p>
           </div>
-          <p className="text-red-600 font-semibold text-lg mb-4">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
-          <ul className="list-none mb-6">
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
-              <span className="text-xl">Breakfast: $29.99 AUD</span>
+          <p className="text-red-600 font-semibold text-lg mb-2">Note: Weekly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-4">
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-2" />
+              <span className="text-lg">Breakfast: $29.99 AUD</span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-3" />
-              <span className="text-xl">Lunch (500ml): $41.99 AUD</span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-2" />
+              <span className="text-lg">Lunch (500ml): $41.99 AUD</span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
-              <span className="text-xl">Lunch (750ml): $59.99 AUD</span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-2" />
+              <span className="text-lg">Lunch (750ml): $59.99 AUD</span>
             </li>
           </ul>
           <button
             onClick={handleLearnMore}
-            className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-blue-700 transition duration-300 text-xl"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg mb-4 hover:bg-blue-700 transition duration-300 text-lg"
           >
             View Items Included
           </button>
@@ -68,38 +68,38 @@ const Subscription = () => {
 
         {/* Monthly Package - Highlighted as Popular */}
         <motion.div
-          className="border p-10 rounded-2xl shadow-2xl bg-green-100 hover:bg-green-200 transition duration-300 h-auto relative"
+          className="border p-6 md:p-10 rounded-2xl shadow-2xl bg-green-100 hover:bg-green-200 transition duration-300 h-auto relative"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="absolute top-0 right-0 bg-yellow-400 text-black px-6 py-2 rounded-bl-2xl flex items-center">
-            <FontAwesomeIcon icon={faStar} className="mr-2" />
-            <span className="font-bold text-xl">Popular</span>
+          <div className="absolute top-0 right-0 bg-yellow-400 text-black px-4 py-1 rounded-bl-2xl flex items-center">
+            <FontAwesomeIcon icon={faStar} className="mr-1" />
+            <span className="font-bold text-lg">Popular</span>
           </div>
-          <h2 className="text-3xl font-bold mb-6">Monthly Plan</h2>
-          <div className="flex items-center mb-6">
-            <FontAwesomeIcon icon={faCalendarAlt} className="w-12 h-12 mr-4 text-green-600" />
-            <p className="text-gray-700 text-xl">Ideal for consistent meal planning with <span className="font-bold text-green-700">20 days + 2 FREE days</span>.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Monthly Plan</h2>
+          <div className="flex items-center mb-4">
+            <FontAwesomeIcon icon={faCalendarAlt} className="w-10 h-10 mr-2 text-green-600" />
+            <p className="text-gray-700 text-lg">Ideal for consistent meal planning with <span className="font-bold text-green-700">20 days + 2 FREE days</span>.</p>
           </div>
-          <p className="text-red-600 font-semibold text-lg mb-4">Note: Monthly plan is available only for 5 days (Monday to Friday).</p>
-          <ul className="list-none mb-6">
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-3" />
-              <span className="text-xl">Breakfast: $114.99 AUD</span>
+          <p className="text-red-600 font-semibold text-lg mb-2">Note: Monthly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-4">
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-blue-600 mr-2" />
+              <span className="text-lg">Breakfast: $114.99 AUD</span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-red-600 mr-3" />
-              <span className="text-xl">Lunch (500ml): $165.99 AUD </span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-red-600 mr-2" />
+              <span className="text-lg">Lunch (500ml): $165.99 AUD </span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-yellow-600 mr-3" />
-              <span className="text-xl">Lunch (750ml): $249.99 AUD </span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-yellow-600 mr-2" />
+              <span className="text-lg">Lunch (750ml): $249.99 AUD </span>
             </li>
           </ul>
           <button
             onClick={handleLearnMore}
-            className="w-full bg-green-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-green-700 transition duration-300 text-xl"
+            className="w-full bg-green-600 text-white py-2 px-4 rounded-lg mb-4 hover:bg-green-700 transition duration-300 text-lg"
           >
            View Items Included
           </button>
@@ -111,34 +111,34 @@ const Subscription = () => {
 
         {/* Quarterly Package */}
         <motion.div
-          className="border p-10 rounded-2xl shadow-2xl bg-yellow-100 hover:bg-yellow-200 transition duration-300 h-auto"
+          className="border p-6 md:p-10 rounded-2xl shadow-2xl bg-yellow-100 hover:bg-yellow-200 transition duration-300 h-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-3xl font-bold mb-6">Quarterly Plan</h2>
-          <div className="flex items-center mb-6">
-            <FontAwesomeIcon icon={faClock} className="w-12 h-12 mr-4 text-yellow-600" />
-            <p className="text-gray-700 text-xl">Great for long-term savings with <span className="font-bold text-yellow-700">60 days + 5 FREE days</span>.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Quarterly Plan</h2>
+          <div className="flex items-center mb-4">
+            <FontAwesomeIcon icon={faClock} className="w-10 h-10 mr-2 text-yellow-600" />
+            <p className="text-gray-700 text-lg">Great for long-term savings with <span className="font-bold text-yellow-700">60 days + 5 FREE days</span>.</p>
           </div>
-          <p className="text-red-600 font-semibold text-lg mb-4">Note: Quarterly plan is available only for 5 days (Monday to Friday).</p>
-          <ul className="list-none mb-6">
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-3" />
-              <span className="text-xl">Breakfast: $323.99 AUD</span>
+          <p className="text-red-600 font-semibold text-lg mb-2">Note: Quarterly plan is available only for 5 days (Monday to Friday).</p>
+          <ul className="list-none mb-4">
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-purple-600 mr-2" />
+              <span className="text-lg">Breakfast: $323.99 AUD</span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-3" />
-              <span className="text-xl">Lunch (500ml): $389.99 AUD</span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-2" />
+              <span className="text-lg">Lunch (500ml): $389.99 AUD</span>
             </li>
-            <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-3" />
-              <span className="text-xl">Lunch (750ml): $599.99 AUD</span>
+            <li className="flex items-center mb-2">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-orange-600 mr-2" />
+              <span className="text-lg">Lunch (750ml): $599.99 AUD</span>
             </li>
           </ul>
           <button
             onClick={handleLearnMore}
-            className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg mb-6 hover:bg-yellow-700 transition duration-300 text-xl"
+            className="w-full bg-yellow-600 text-white py-2 px-4 rounded-lg mb-4 hover:bg-yellow-700 transition duration-300 text-lg"
           >
            View Items Included
           </button>
@@ -150,28 +150,28 @@ const Subscription = () => {
       </div>
 
       {/* New Container for Healthy Food vs Junk Food */}
-      <div className="mt-12 p-8 bg-gray-100 rounded-2xl shadow-lg">
-        <h2 className="text-4xl font-bold mb-6 text-center">Healthy Food vs. Junk Food</h2>
+      <div className="mt-8 md:mt-12 p-4 md:p-8 bg-gray-100 rounded-2xl shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Healthy Food vs. Junk Food</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Healthy Food Section */}
           <div className="flex flex-col items-center">
-            <img src="https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg" alt="Healthy Food" className="w-full h-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">Healthy Food</h2>
+            <img src="https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg" alt="Healthy Food" className="w-full h-auto mb-4 rounded-lg" />
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Healthy Food</h2>
             <p className="text-lg">Packed with nutrients, healthy foods support overall well-being.</p>
           </div>
 
           {/* Junk Food Section */}
           <div className="flex flex-col items-center">
-            <img src="https://t4.ftcdn.net/jpg/03/14/36/33/360_F_314363347_jiMEfkFWHqJ9J5r3IjihtTlvyf7ECYpl.jpg" alt="Junk Food" className="w-full h-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">Junk Food</h2>
+            <img src="https://t4.ftcdn.net/jpg/03/14/36/33/360_F_314363347_jiMEfkFWHqJ9J5r3IjihtTlvyf7ECYpl.jpg" alt="Junk Food" className="w-full h-auto mb-4 rounded-lg" />
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Junk Food</h2>
             <p className="text-lg">High in calories and low in nutrients, junk food can lead to health issues.</p>
           </div>
         </div>
 
         {/* Video Section */}
-        <div className="mt-12">
-          <h2 className="text-4xl font-bold mb-6 text-center">Watch and Learn</h2>
+        <div className="mt-8 md:mt-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Watch and Learn</h2>
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -184,9 +184,9 @@ const Subscription = () => {
         </div>
 
         {/* Negatives of Junk Food */}
-        <div className="mt-12 p-8 bg-red-100 rounded-2xl shadow-lg">
-          <h2 className="text-4xl font-bold mb-6 text-center">Negatives of Junk Food</h2>
-          <ul className ="list-disc list-inside mb-6">
+        <div className="mt-8 md:mt-12 p-4 md:p-8 bg-red-100 rounded-2xl shadow-lg">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Negatives of Junk Food</h2>
+          <ul className ="list-disc list-inside mb-4">
             <li className="text-lg mb-2">Increases the risk of obesity and related diseases.</li>
             <li className="text-lg mb-2">Can lead to heart disease due to high levels of trans fats.</li>
             <li className="text-lg mb-2">Contributes to diabetes and insulin resistance.</li>
@@ -196,17 +196,17 @@ const Subscription = () => {
         </div>
 
         {/* Quotes Section */}
-        <div className="mt-12 p-8 bg-gray-200 rounded-2xl shadow-lg">
-          <h2 className="text-4xl font-bold mb-6 text-center">Quotes on Healthy Eating</h2>
-          <blockquote className="text-lg italic mb-4">"ఆహారం మన ఆరోగ్యానికి మూలం." (Food is the source of our health.)</blockquote>
-          <blockquote className="text-lg italic mb-4">"स्वस्थ भोजन से ही स्वस्थ जीवन संभव है।" (A healthy life is possible only with healthy food.)</blockquote>
-          <blockquote className="text-lg italic mb-4">"జంక్ ఫుడ్ తినడం అనేది ఆరోగ్యానికి హానికరం." (Eating junk food is harmful to health.)</blockquote>
-          <blockquote className="text-lg italic mb-4">"सही आहार से ही सही जीवन संभव है।" (A proper diet leads to a proper life.)</blockquote>
+        <div className="mt-8 md:mt-12 p-4 md:p-8 bg-gray-200 rounded-2xl shadow-lg">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Quotes on Healthy Eating</h2>
+          <blockquote className="text-lg italic mb-2">"ఆహారం మన ఆరోగ్యానికి మూలం." (Food is the source of our health.)</blockquote>
+          <blockquote className="text-lg italic mb-2">"स्वस्थ भोजन से ही स्वस्थ जीवन संभव है।" (A healthy life is possible only with healthy food.)</blockquote>
+          <blockquote className="text-lg italic mb-2">"జంక్ ఫుడ్ తినడం అనేది ఆరోగ్యానికి హానికరం." (Eating junk food is harmful to health.)</blockquote>
+          <blockquote className="text-lg italic mb-2">"सही आहार से ही सही जीवन संभव है।" (A proper diet leads to a proper life.)</blockquote>
         </div>
 
         {/* Call to Action */}
-        <div className="mt-12 p-8 bg-blue-100 rounded-2xl shadow-lg text-center">
-          <h2 className="text-4xl font-bold mb-6">Subscribe to Sri Karimalesh Caterers</h2>
+        <div className="mt-8 md:mt-12 p-4 md:p-8 bg-blue-100 rounded-2xl shadow-lg text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Sri Karimalesh Caterers</h2>
           <p className="text-lg mb-4">Enjoy delicious and healthy meals delivered to your doorstep.</p>
           <WhatsAppButton
             text="Subscribe Now"
