@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react"; // ✅ Import WhatsAppButton
-import { FaArrowDown } from "react-icons/fa"; // Import an icon for the button
+import React, { useState, useEffect, useRef } from "react"; 
+import { FaArrowDown } from "react-icons/fa"; 
 
 const quotes = [
   {
@@ -30,7 +30,7 @@ const backgroundImages = [
 const Hero = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [currentBackground, setCurrentBackground] = useState(0);
-  const containerRef = useRef<HTMLDivElement | null>(null); // Create a ref for the container
+  const containerRef = useRef<HTMLDivElement | null>(null); 
 
   useEffect(() => {
     const quoteTimer = setInterval(() => {
@@ -39,7 +39,7 @@ const Hero = () => {
 
     const backgroundTimer = setInterval(() => {
       setCurrentBackground((prev) => (prev + 1) % backgroundImages.length);
-    }, 7000); // Change background every 7 seconds
+    }, 7000); 
 
     return () => {
       clearInterval(quoteTimer);
@@ -49,68 +49,59 @@ const Hero = () => {
 
   const handleViewMoreClick = () => {
     if (containerRef.current) {
-      containerRef.current.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the container
+      containerRef.current.scrollIntoView({ behavior: "smooth" }); 
     }
   };
 
   return (
     <div className="relative h-screen flex flex-col items-center justify-center">
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{
           backgroundImage: `url(${backgroundImages[currentBackground]})`,
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div> {/* Adjust opacity for transparency */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
       </div>
 
-      {/* Text Content */}
       <div className="relative z-10 text-center text-white px-6 flex flex-col items-center justify-center h-full">
-        {/* Logo */}
         <img
           src="https://res.cloudinary.com/dt3effj06/image/upload/v1741682845/hv_vcp39h.svg"
           alt="Sri Karimalesh Caterings Logo"
-          className="w-400 h-400 mx-auto mb-6" // Adjust size as needed
+          className="w-3/4 md:w-1/2 h-auto mx-auto mb-6" 
         />
 
-        {/* Quotes */}
-        <div className="space-y-4"> {/* Increased gap between quotes */}
-          <p className="text-2xl md:text-3xl font-semibold text-orange-300 font-serif shadow-lg">
+        <div className="space-y-4">
+          <p className="text-xl md:text-3xl font-semibold text-orange-300 font-serif shadow-lg">
             {quotes[currentQuote].telugu}
           </p>
           <p className="text-lg md:text-2xl italic text-yellow-300 font-sans shadow-lg">
             {quotes[currentQuote].english}
           </p>
-          <p className="text-2xl md:text-4xl text-orange-300 font-serif shadow-lg">
+          <p className="text-xl md:text-3xl text-orange-300 font-serif shadow-lg">
             {quotes[currentQuote].hindi}
           </p>
         </div>
 
-        {/* View More Button */}
-        <div className="mt-10"> {/* Increased margin top */}
+        <div className="mt-10">
           <button
             onClick={handleViewMoreClick}
-            className="flex items-center bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale-105" // Increased size and added hover effect
+            className="flex items-center bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale-105"
           >
             <span>View More</span>
-            <FaArrowDown className="ml-2" /> {/* Add an icon to the button */}
+            <FaArrowDown className="ml-2" />
           </button>
         </div>
       </div>
 
-      {/* Container Page Section */}
       <div ref={containerRef} className="bg-white py-10">
       </div>
-      
 
-      {/* Flash News Ticker */}
-      <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3 mt-overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3">
         <div className="whitespace-nowrap animate-slide">
           <p className="text-lg font-medium">
             For any services, please inform us at least 3 days in advance! || Today's Deal! 🌿 Mint Coriander Rice with complimentary Semiya Payasam for just $9.99 AUD! 🍛✨ Order now and enjoy the meal! 😋🚀
           </p>
-         
         </div>
       </div>
     </div>
