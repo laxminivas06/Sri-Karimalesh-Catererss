@@ -28,7 +28,7 @@ const deals = [
   
   {
     video: "https://res.cloudinary.com/dt3effj06/video/upload/v1741797387/SK_13_march_2025_New_a5ivkf.mp4",
-    title: "13 March 2025",
+    title: " Lunch 13 March 2025",
     description: "Get  Mint Coriander rice with compliment of Delicious Semiya Payasam at Just $9.99 AUD!",
   },
   {
