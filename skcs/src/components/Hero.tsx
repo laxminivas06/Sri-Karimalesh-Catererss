@@ -27,6 +27,39 @@ const backgroundImages = [
   "https://www.shutterstock.com/image-photo/andhra-pradesh-traditional-thali-india-600nw-2172140155.jpg",
 ];
 
+const TypingText = ({ text }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const index = useRef(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (index.current < text.length) {
+        setDisplayedText((prev) => prev + text[index.current]);
+        index.current++;
+      } else {
+        // Reset the text after it finishes typing
+        setDisplayedText("");
+        index.current = 0;
+      }
+    }, 90); // Adjust typing speed here
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <span>{displayedText}</span>;
+};
+
+const ChatBox = () => {
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-4 mt-6 w-80 mx-auto">
+      <div className="text-gray-800 font-semibold text-lg">Today's Updates:</div>
+      <div className="text-gray-600 text-sm">
+        <TypingText text="Check out our latest offers in Today’s Deals and grab them before they’re gone" />
+      </div>
+    </div>
+  );
+};
+
 const Hero = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [currentBackground, setCurrentBackground] = useState(0);
@@ -86,12 +119,15 @@ const Hero = () => {
         <div className="mt-10">
           <button
             onClick={handleViewMoreClick}
-            className="flex items-center bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale- 105"
+            className="flex items-center bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale-105"
           >
             <span>View More</span>
             <FaArrowDown className="ml-2" />
           </button>
         </div>
+
+        {/* Chat Box for Today's Updates */}
+        <ChatBox />
       </div>
 
       <div ref={containerRef} className="bg-white py-10">
