@@ -24,66 +24,66 @@ function App() {
       <div className="min-h-screen flex flex-col bg-amber-50">
         {/* 📌 Navbar */}
         <Navbar />
+    {/* 🏠 Main Content */}
+    <main className="flex-grow">
+      <Routes>
+        {/* 🏠 Home Page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <ContainerPage />
+              <Services />
+              <Testimonials />
+              <WhatsAppButton floating />
+            </>
+          }
+        />
 
-        {/* 🏠 Main Content */}
-        <main className="flex-grow">
-          <Routes>
-            {/* 🏠 Home Page */}
-            <Route
-              path="/"
-              element={
-                <>
-                  <Hero />
-                  <ContainerPage />
-                  <Services />
-                  <Testimonials />
-                  <WhatsAppButton floating />
-                </>
-              }
-            />
+        {/* 📌 Category Page (Dynamic) */}
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
 
-            {/* 📌 Category Page (Dynamic) */}
-            <Route path="/category/:categoryName" element={<CategoryPage />} />
+        {/* 📦 Meal Box Page */}
+        <Route path="/meal-box" element={<><MealBox /><Contact /></>} />
 
-            {/* 📦 Meal Box Page */}
-            <Route path="/meal-box" element={<><MealBox /><Contact /></>} />
+        {/* ✈️ Trip Packages Page */}
+        <Route path="/trip-packages" element={<><TripPackages /><Contact /></>} />
 
-            {/* ✈️ Trip Packages Page */}
-            <Route path="/trip-packages" element={<><TripPackages /><Contact /></>} />
+        {/* 🍽️ Menu Page */}
+        <Route path="/menu" element={<><MenuSection /><Contact /></>} />
 
-            {/* 🍽️ Menu Page */}
-            <Route path="/menu" element={<><MenuSection /><Contact /></>} />
+        {/* 🛒 Cart Page */}
+        <Route path="/cart" element={<><CartPage /><Contact /></>} />
 
-            {/* 🛒 Cart Page */}
-            <Route path="/cart" element={<><CartPage /><Contact /></>} />
+        {/* 📞 Contact Page */}
+        <Route path="/contact" element={<Contact />} />
 
-            {/* 📞 Contact Page */}
-            <Route path="/contact" element={<Contact />} />
+        {/* ℹ️ About Page */}
+        <Route path="/about" element={<><About /><Contact /></>} />
 
-            {/* ℹ️ About Page */}
-            <Route path="/about" element={<><About /><Contact /></>} />
+        {/* 📅 Subscription Page */}
+        <Route path="/subscription" element={<><Subscription /><Contact /></>} />
 
-            {/* 📅 Subscription Page */}
-            <Route path="/subscription" element={<><Subscription /><Contact /></>} />
+        {/* 🎉 Today's Deals Page */}
+        <Route path="/todays-deals" element={<><TodaysDeals /><Contact /></>} />
 
-            {/* 🎉 Today's Deals Page */}
-            <Route path="/todays-deals" element={<><TodaysDeals /><Contact /></>} />
+        {/* 📦 Container Page */}
+        <Route path="/container-page" element={<ContainerPage />} />
 
-            {/* 📦 Container Page */}
-            <Route path="/container-page" element={<ContainerPage />} />
+        {/* 🎉 Festival Page */}
+        <Route path="/festival" element={<Festival />} /> {/* New Route */}
 
-            {/* 🎉 Festival Page */}
-            <Route path="/festival" element={<Festival />} /> {/* New Route */}
+        {/* 404 Not Found */}
+        <Route path="*" element={<h2>404 Not Found</h2>} />
+      </Routes>
+    </main>
 
-            {/* 404 Not Found */}
-            <Route path="*" element={<h2>404 Not Found</h2>} />
-          </Routes>
-        </main>
-
-        {/* 📌 Footer */}
-        <Footer />
-      </div>
-    </Router>
+    {/* 📌 Footer */}
+    <Footer />
+  </div>
+</Router>
+        
   );
 }
 

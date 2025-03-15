@@ -20,7 +20,9 @@ const Navbar = () => {
 
     setTimeout(() => setCartNotification(""), 2000);
   };
-
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
     updateCart();
     const handleStorageChange = () => updateCart();
