@@ -28,36 +28,23 @@ const backgroundImages = [
 ];
 
 const TypingText = ({ text }) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const index = useRef(0);
+  const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
+    let index = 0;
     const interval = setInterval(() => {
-      if (index.current < text.length) {
-        setDisplayedText((prev) => prev + text[index.current]);
-        index.current++;
+      if (index < text.length) {
+        setDisplayedText((prev) => prev + text[index]);
+        index++;
       } else {
-        // Reset the text after it finishes typing
-        setDisplayedText("");
-        index.current = 0;
+        clearInterval(interval);
       }
-    }, 90); // Adjust typing speed here
+    }, 100); // Adjust typing speed here
 
     return () => clearInterval(interval);
   }, [text]);
 
   return <span>{displayedText}</span>;
-};
-
-const ChatBox = () => {
-  return (
-    <div className="bg-white rounded-lg shadow-lg p-4 mt-6 w-80 mx-auto">
-      <div className="text-gray-800 font-semibold text-lg">Today's Updates:</div>
-      <div className="text-gray-600 text-sm">
-        <TypingText text="Check out our latest offers in Today’s Deals and grab them before they’re gone”" />
-      </div>
-    </div>
-  );
 };
 
 const Hero = () => {
@@ -125,9 +112,6 @@ const Hero = () => {
             <FaArrowDown className="ml-2" />
           </button>
         </div>
-
-        {/* Chat Box for Today's Updates */}
-        <ChatBox />
       </div>
 
       <div ref={containerRef} className="bg-white py-10">

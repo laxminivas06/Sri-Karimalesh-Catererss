@@ -12,7 +12,7 @@
   }
   
   .animate-slide {
-    animation: slide 30s linear infinite; /* Adjust duration as needed */
+    animation: slide 10s linear infinite; /* Adjust duration as needed */
   }
   html, body {
     touch-action: manipulation; /* Prevents zooming on touch devices */
