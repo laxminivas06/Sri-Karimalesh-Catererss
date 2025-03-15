@@ -41,14 +41,14 @@ For our latest daily updates, tap on <strong>Today's Deals</strong>.
 
   <div className="space-y-2">
     <Link
-      to="/meal-box?meal=lunch"
+      to="/meal-box"
       aria-label="View Lunch Options"
       className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4"
     >
       Lunch
     </Link>
     <Link
-      to="/meal-box?meal=breakfast"
+      to="/meal-box"
       aria-label="View Breakfast Options"
       className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
     >
