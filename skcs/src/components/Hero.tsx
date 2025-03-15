@@ -86,7 +86,7 @@ const Hero = () => {
         <div className="mt-10">
           <button
             onClick={handleViewMoreClick}
-            className="flex items-center bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale-105"
+            className="flex items-center bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-200 transition duration-300 mb-6 transform hover:scale- 105"
           >
             <span>View More</span>
             <FaArrowDown className="ml-2" />
@@ -100,7 +100,8 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 bg-orange-900 text-white py-3">
         <div className="whitespace-nowrap animate-slide">
           <p className="text-lg font-medium">
-            For any services, please inform us at least 3 days in advance! || Today's Deal! 🌿 Mint Coriander Rice with complimentary Semiya Payasam for just $9.99 AUD! 🍛✨ Order now and enjoy the meal! 😋🚀
+            📢 For any services, please inform us at least <strong>3 days in advance</strong>!  
+            🔥 <strong>Today's Upcoming Deal</strong> is now live! Check out <strong>Today's Deals</strong> and grab it before it’s gone! 🚀✨  
           </p>
         </div>
       </div>
