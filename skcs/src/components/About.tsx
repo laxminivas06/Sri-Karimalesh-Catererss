@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaUtensils, FaLeaf, FaUserTie , FaClipboardList, FaSmile } from "react-icons/fa"; // Import icons from Font Awesome
 

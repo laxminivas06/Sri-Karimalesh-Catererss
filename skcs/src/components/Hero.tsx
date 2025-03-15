@@ -54,7 +54,7 @@ const ChatBox = () => {
     <div className="bg-white rounded-lg shadow-lg p-4 mt-6 w-80 mx-auto">
       <div className="text-gray-800 font-semibold text-lg">Today's Updates:</div>
       <div className="text-gray-600 text-sm">
-        <TypingText text="Check out our latest offers in Today’s Deals and grab them before they’re gone" />
+        <TypingText text="Check out our latest offers in Today’s Deals and grab them before they’re gone”" />
       </div>
     </div>
   );

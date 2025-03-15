@@ -4,9 +4,7 @@ const MealBox = () => {
   const [notification, setNotification] = useState(""); // State for notification message
   const [breakfastQuantities, setBreakfastQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for breakfast items
   const [lunchQuantities, setLunchQuantities] = useState<{ [key: string]: number }>({}); // Track quantities for lunch items
-  const [cart, setCart] = useState<{ name: string; price: number | { "500ml": number; "750ml": number }; img: string; quantity: number; pack: string; option: string; source: "breakfast" | "lunch" }[]>([]); // State for cart items
-  const [addedBreakfastItems, setAddedBreakfastItems] = useState<{ [key: string]: boolean }>({}); // State for added breakfast items
-  const [addedLunchItems, setAddedLunchItems] = useState<{ [key: string]: boolean }>({}); // State for added lunch items
+  const [cart, setCart] = useState<{ name: string; price: number; img: string; quantity: number; pack: string; source: "breakfast" | "lunch" }[]>([]); // State for cart items
   const [totalAmount, setTotalAmount] = useState(0); // State for total amount
   const [lunchContainerSize, setLunchContainerSize] = useState<{ [key: string]: "500ml" | "750ml" }>({}); // Track container sizes for lunch items
 
@@ -37,13 +35,20 @@ const MealBox = () => {
       try {
         const parsedCart = JSON.parse(savedCart);
         setCart(parsedCart);
-        const total = parsedCart.reduce((acc, item) => acc + (typeof item.price === 'number' ? item.price : item.price[lunchContainerSize[item.name]]) * item.quantity, 0);
-        setTotalAmount(total);
+        calculateTotal(parsedCart);
       } catch (error) {
         console.error("Failed to parse shopping cart:", error);
       }
     }
   }, []);
+
+  const calculateTotal = (cartItems) => {
+    const total = cartItems.reduce((acc, item) => {
+      const price = typeof item.price === 'number' ? item.price : item.price[lunchContainerSize[item.name]];
+      return acc + price * item.quantity;
+    }, 0);
+    setTotalAmount(total);
+  };
 
   const addToCart = (itemName, type) => {
     const item = type === "breakfast" ? breakfastOptions.find(option => option.name === itemName) : lunchOptions.find(option => option.name === itemName);
@@ -59,6 +64,7 @@ const MealBox = () => {
         updatedCart[existingItemIndex].quantity += quantity;
         setCart(updatedCart);
         localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+        calculateTotal(updatedCart);
       } else {
         const cartItem = {
           name: item.name,
@@ -66,27 +72,22 @@ const MealBox = () => {
           img: item.img,
           quantity: quantity,
           pack: type === "breakfast" ? "Single Plate" : `${containerSize} Container`,
-          option: "N/A",
           source: type
         };
         const updatedCart = [...cart, cartItem];
         setCart(updatedCart);
         localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+        calculateTotal(updatedCart);
       }
 
-      setTotalAmount(prevTotal => prevTotal + (typeof price === 'number' ? price : 0) * quantity);
-
-      if (type === "breakfast") {
-        setAddedBreakfastItems(prev => ({ ...prev, [itemName]: true }));
-        setBreakfastQuantities(prev => ({ ...prev, [itemName]: 0 }));
-        setNotification(`Added ${item.name} from Breakfast!`);
-      } else {
-        setAddedLunchItems(prev => ({ ...prev, [itemName]: true }));
-        setLunchQuantities(prev => ({ ...prev, [itemName]: 0 }));
-        setNotification(`Added ${item.name} from Lunch!`);
-      }
-
+      setNotification(`Added ${item.name} from ${type.charAt(0).toUpperCase() + type.slice(1)}!`);
       setTimeout(() => setNotification(""), 2000);
+      
+      if (type === "breakfast") {
+        setBreakfastQuantities(prev => ({ ...prev, [itemName]: 0 }));
+      } else {
+        setLunchQuantities(prev => ({ ...prev, [itemName]: 0 }));
+      }
     } else {
       console.error("Item not found or quantity is zero:", itemName);
     }
@@ -132,7 +133,7 @@ const MealBox = () => {
               <div key={index} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
                 <img src={item.img} alt={item.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
                 <h4 className="text-lg font-semibold">{item.name}</h4>
-                <span className="text-lg font-bold">Price: ${item.price} AUD</span>
+                <span className=" text-lg font-bold">Price: ${item.price} AUD</span>
                 {/* Quantity Adjustment for Breakfast */}
                 <div className="flex justify-center items-center mt-4">
                   <button
@@ -157,9 +158,9 @@ const MealBox = () => {
                 </div>
                 <button
                   onClick={() => addToCart(item.name, "breakfast")}
-                  className={`mt-2 px-4 py-2 rounded-md ${addedBreakfastItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+                  className={`mt-2 px-4 py-2 rounded-md ${breakfastQuantities[item.name] > 0 ? "bg-blue-600 text-white" : "bg-gray-200"}`}
                 >
-                  {addedBreakfastItems[item.name] ? "Added" : "Add to Cart"}
+                  {breakfastQuantities[item.name] > 0 ? "Add to Cart" : "Select Quantity"}
                 </button>
               </div>
             ))}
@@ -224,16 +225,16 @@ const MealBox = () => {
                   />
                   <button
                     onClick={() => handleQuantityChange(item.name, "lunch", 1)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition duration-200"
+                    className="bg-green-500 text-white px-4 py-2 rounded-r-md hover bg-green-600 transition duration-200"
                   >
                     +
                   </button>
                 </div>
                 <button
                   onClick={() => addToCart(item.name, "lunch")}
-                  className={`mt-2 p-2 rounded ${addedLunchItems[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
+                  className={`mt-2 p-2 rounded ${lunchContainerSize[item.name] ? "bg-blue-600 text-white" : "bg-gray-200"}`}
                 >
-                  {addedLunchItems[item.name] ? "Added" : "Add to Cart"}
+                  {lunchContainerSize[item.name] ? "Add to Cart" : "Select Size"}
                 </button>
               </div>
             ))}
