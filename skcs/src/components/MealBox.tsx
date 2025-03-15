@@ -251,7 +251,7 @@ const MealBox = () => {
                     <img src={item.img} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
                     <div>
                       <h4 className="text-lg font-semibold">{item.name}</h4>
-                      <p className ="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
+                      <p className="text-gray-700">Price: ${typeof item.price === 'number' ? item.price.toFixed(2) : (item.price[lunchContainerSize[item.name]] || 0).toFixed(2)} AUD</p>
                       <p className="text-gray-700">Quantity: {item.quantity}</p>
                       <p className="text-gray-700">Pack: {item.pack}</p>
                       <p className="text-gray-700">Source: {item.source}</p>
