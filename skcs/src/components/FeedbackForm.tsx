@@ -126,7 +126,7 @@ const FeedbackForm = () => {
                     </span>
                   </label>
                   <span className="text-sm text-gray-500">
-                    {star === 1 ? 'Bad' : star === 2 ? 'Very Bad' : star === 3 ? 'Average' : star === 4 ? 'Good' : 'Very Good'}
+                    {star === 1 ? 'Very Dissatisfied' : star === 2 ? 'Dissatisfied' : star === 3 ? 'Average' : star === 4 ? 'Satisfied' : 'Very Satisfied'}
                   </span>
                 </div>
               ))}
