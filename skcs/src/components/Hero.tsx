@@ -115,7 +115,6 @@ const Hero = () => {
         <div className="whitespace-nowrap animate-slide">
           <p className="text-lg font-medium">
             📢 For any services, please inform us at least <strong>3 days in advance</strong>!  
-            🔥 <strong>Today's Upcoming Deal</strong> is now live! Check out <strong>Today's Deals</strong> and grab it before it’s gone! 🚀✨  
           </p>
         </div>
       </div>
