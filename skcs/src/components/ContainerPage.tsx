@@ -29,46 +29,46 @@ const ContainerPage: React.FC = () => {
   <h3 className="text-xl font-bold text-gray-800 mb-4">Daily Box</h3>
   <p className="text-sm text-gray-600 mb-4">Enjoy our daily meal boxes for <strong>breakfast</strong> and <strong>lunch</strong>.</p>
 
-  {/* Important Message */}
-  <div className="flex items-center justify-center bg-red-100 text-red-700 px-4 py-2 rounded-lg mb-4">
-    <span className="text-red-700 text-lg mr-2">⚠️</span>
-    <p className="text-sm font-semibold">
+ {/* Important Message */}
+<div className="flex items-center justify-center bg-red-100 text-red-700 px-4 py-2 rounded-lg mb-4">
+  <span className="text-red-700 text-lg mr-2">⚠️</span>
+  <p className="text-sm font-semibold">
     Our <strong>Daily Box</strong> is updated <strong>every day</strong> with customized <strong>breakfast</strong> and <strong>lunch</strong> options! 🍽️  
-Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to explore the delicious items available .  
-For our latest daily updates, tap on <strong>Today's Deals</strong>.  
-    </p>
-  </div>
-
-  <div className="space-y-2">
-    <Link
-      to="/meal-box"
-      aria-label="View Lunch Options"
-      className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4"
-    >
-      Lunch
-    </Link>
-    <Link
-      to="/meal-box"
-      aria-label="View Breakfast Options"
-      className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
-    >
-      Breakfast
-    </Link>
-  </div>
+    Tap on <strong>Lunch</strong> or <strong>Breakfast</strong> to explore the delicious items available.  
+    For our latest daily updates, tap on <strong>Today's Deals</strong>.
+  </p>
 </div>
 
-          {/* Today's Deals Container */}
-          <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Today's Deals</h3>
-            <p className="text-sm text-gray-600 mb-4">Check out our special deals available today!</p>
-            <Link
-              to="/todays-deals"
-              aria-label="View Today's Deals"
-              className="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
-            >
-              View Deals
-            </Link>
-          </div>
+<div className="space-y-2">
+  <Link
+    to="/meal-box"
+    aria-label="View Lunch Options"
+    className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 mr-4"
+  >
+    Lunch
+  </Link>
+  <Link
+    to="/meal-box"
+    aria-label="View Breakfast Options"
+    className="bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
+  >
+    Breakfast
+  </Link>
+</div>
+
+{/* Today's Deals Button */}
+<div className="mt-8"> {/* Add margin-top for spacing */}
+  <Link
+    to="/todays-deals"
+    aria-label="View Today's Deals"
+    className="bg-red-600 text-white px-3 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300"
+  >
+    Today's Deals
+  </Link>
+</div>
+</div>
+
+         
 
           {/* Trip Packages Container */}
           <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transition-transform transform hover:scale-105">
