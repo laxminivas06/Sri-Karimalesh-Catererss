@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"; 
 import { FaArrowDown } from "react-icons/fa"; 
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const quotes = [
   {
@@ -26,26 +27,6 @@ const backgroundImages = [
   "https://savithrammas.com/site/image/cache/catalog/A-Guide-to-Savithrammas-Exotic-Pickles-and-Spices-1080x540.jpg",
   "https://www.shutterstock.com/image-photo/andhra-pradesh-traditional-thali-india-600nw-2172140155.jpg",
 ];
-
-const TypingText = ({ text }) => {
-  const [displayedText, setDisplayedText] = useState('');
-
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayedText((prev) => prev + text[index]);
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 100); // Adjust typing speed here
-
-    return () => clearInterval(interval);
-  }, [text]);
-
-  return <span>{displayedText}</span>;
-};
 
 const Hero = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
@@ -111,6 +92,19 @@ const Hero = () => {
             <span>View More</span>
             <FaArrowDown className="ml-2" />
           </button>
+        </div>
+
+        {/* New Container for Today's Deals without Animation */}
+        <div className="mt-10 bg-transparent-500 p-4 rounded-lg shadow-lg">
+          <span className="text-white text-2xl font-semibold ">🔥 Today's Deals are live! Check them out!</span>
+          <div className="mt-4">
+            <Link
+              to="/todays-deals" // Link to the Today's Deals page
+              className="bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition duration-300"
+            >
+              Today's Deals
+            </Link>
+          </div>
         </div>
       </div>
 
