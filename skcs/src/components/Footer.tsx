@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebook,FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -34,7 +34,7 @@ const Footer = () => {
           <h3 className="text-xl font-bold mb-3">Contact Us</h3>
           <p className="text-gray-600">📍 Sydney, Australia</p>
           <p className="text-gray-600">📞 +61 450 056 387</p>
-          <p className="text-gray-600">✉️ srikarimalesh@gmail.com</p>
+          <p className="text-gray-600">✉️ srikarimaleshcaterers@gmail.com</p>
 
           {/* Social Media Icons */}
           <div className="flex gap-4 mt-4">
@@ -47,6 +47,9 @@ const Footer = () => {
             <a href="https://www.facebook.com/profile.php?id=61573144006273" target="_blank" rel="noopener noreferrer">
               <FaFacebook className="text-blue-500 text-2xl hover:text-blue-600 transition" />
             </a>
+             <a href="mailto:info@srikarimaleshcaterers.com" className="text-blue-500 hover:underline">
+                      <FaEnvelope className="text-blue-500 text-2xl hover:text-blue-600 transition" />
+                    </a>
           </div>
         </div>
       </div>

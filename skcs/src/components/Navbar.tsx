@@ -13,13 +13,14 @@ const Navbar = () => {
     const cart = JSON.parse(localStorage.getItem("shoppingCart") || "[]");
     setCartCount(cart.length);
     if (action === "add") {
-      setCartNotification(`Added 1`);
+      setCartNotification(`Added 1 item to cart`);
     } else if (action === "remove") {
-      setCartNotification(`Removed 1`);
+      setCartNotification(`Removed 1 item from cart`);
     }
 
     setTimeout(() => setCartNotification(""), 2000);
   };
+
   useEffect(() => {
     updateCart();
     const handleStorageChange = () => updateCart();
@@ -47,13 +48,13 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-          <Link to="/menu" className="hover:text-orange-500 transition">Catering</Link>
-          <Link to="/meal-box" className="hover:text-orange-500 transition">Daily Box</Link>
-          <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link>
-          
+            <Link to="/menu" className="hover:text-orange-500 transition">Catering</Link>
+            <Link to="/meal-box" className="hover:text-orange-500 transition">Daily Box</Link>
+            <Link to="/trip-packages" className="hover:text-orange-500 transition">Trip Packages</Link>
             <Link to="/subscription" className="hover:text-orange-500 transition">Subscriptions</Link>
             <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
             <Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link>
+            <Link to="/feedback" className="hover:text-orange-500 transition">Feedback</Link>
             <Link to="/cart" className="relative">
               <ShoppingCart size={24} className="hover:text-orange-500 transition" />
               {cartCount > 0 && (
@@ -65,27 +66,32 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle mobile menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-gray-100 text-gray-800 py-2 rounded-md shadow-md">
+          <div className="md:hidden bg-gray-100 text-gray-800 py-2 rounded-md shadow-md transition-all duration-300">
             <div className="px-4 space-y-2">
-            <button onClick={() => handleNavigation("/menu")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Catering
-              </button><button onClick={() => handleNavigation("/meal-box")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Daily Box
-              </button><button onClick={() => handleNavigation("/trip-packages")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Trip Packages
+              <button onClick={() => handleNavigation("/menu")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+                Catering
+              </button>
+              <button onClick={() => handleNavigation("/meal-box")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+                Daily Box
+              </button>
+              <button onClick={() => handleNavigation("/trip-packages")} className="block px- 3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+                Trip Packages
               </button>
               <button onClick={() => handleNavigation("/subscription")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
-              Subscriptions
+                Subscriptions
               </button>
               <button onClick={() => handleNavigation("/about")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
                 About Us
+              </button>
+              <button onClick={() => handleNavigation("/feedback")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
+                Feedback
               </button>
               <button onClick={() => handleNavigation("/contact")} className="block px-3 py-2 rounded-md hover:bg-gray-200 w-full text-left">
                 Contact Us
