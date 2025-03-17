@@ -3,25 +3,13 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "",
+    name: "Naresh",
     role: "",
-    image: "",
-    content: "",
-    rating: 0
+    
+    content: " We ordered food from Sri Karimalesh Caterers for a family event yesterday.Highlights - soft home-feel bobbatlu, stuffed mirchi bajji, pudhina chutney Guests 100% loved the taste Highly recommend",
+    rating: 5
   },
-  {
-    name: "",
-    role: "",
-    image: "",
-    content: "",
-    rating: 0
-  },{
-    name: "",
-    role: "",
-    image: "",
-    content: "",
-    rating: 0
-  },
+  
   
 ];
 
@@ -39,11 +27,7 @@ const Testimonials = () => {
               className="bg-white rounded-2xl shadow-lg p-8 transform hover:-translate-y-1 transition-transform duration-300"
             >
               <div className="flex items-center mb-6">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                />
+                
                 <div>
                   <h3 className="font-semibold text-lg">{testimonial.name}</h3>
                   <p className="text-orange-600">{testimonial.role}</p>
