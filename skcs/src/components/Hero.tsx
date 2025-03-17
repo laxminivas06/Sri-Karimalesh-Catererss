@@ -69,7 +69,7 @@ const Hero = () => {
         <img
           src="https://res.cloudinary.com/dt3effj06/image/upload/v1741682845/hv_vcp39h.svg"
           alt="Sri Karimalesh Caterings Logo"
-          className="w-3/4 md:w-1/2 h-auto mx-auto mb-6" 
+          className="w-3/4 md:w-1/2 h-auto mx-auto mb-6 mt-4" 
         />
 
         <div className="space-y-4">
