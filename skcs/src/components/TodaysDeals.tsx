@@ -5,14 +5,24 @@ import { motion } from "framer-motion"; // Import Framer Motion for animations
 const deals = [
   
   {
-    "image": "https://res.cloudinary.com/dt3effj06/image/upload/v1742067022/2_n6agoh.png",
-    "title": "Breakfast 17th March 2025",
-    "description": "🥢 Idli Lovers! Get our Special Idli (4 pieces) at an unbeatable price of $5.99 AUD! Soft, fluffy, and served fresh! 🥥🍛"
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742178847/4_xuunhs.png",
+    title: "Breakfast 18th March 2025",
+    description: "🥢 Idli Lovers! Get our Special Idli (4 pieces) at an unbeatable price of $5.99 AUD! Soft, fluffy, and served fresh! 🥥🍛"
 },
 {
-    "image": "https://res.cloudinary.com/dt3effj06/image/upload/v1742067021/1_xqfvgg.png",
-    "title": "Lunch 17th March 2025",
-    "description": "🍛 Special Offer! Enjoy delicious Rice with Gutti Vankaya Curry for just $10.99! Don’t miss this authentic South Indian delight! 🌿✨"
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742178846/3_dnxi19.png",
+    title: "Lunch 18th March 2025",
+    description: "Special Offer! 🍛 Enjoy the delicious Bagara with Paneer Butter Masala for just Rs. 11.99! Don’t miss out! 🎉🔥"
+},
+  {
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742067022/2_n6agoh.png",
+    title: "Breakfast 17th March 2025",
+    description: "🥢 Idli Lovers! Get our Special Idli (4 pieces) at an unbeatable price of $5.99 AUD! Soft, fluffy, and served fresh! 🥥🍛"
+},
+{
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742067021/1_xqfvgg.png",
+    title: "Lunch 17th March 2025",
+    description: "🍛 Special Offer! Enjoy delicious Rice with Gutti Vankaya Curry for just $10.99! Don’t miss this authentic South Indian delight! 🌿✨"
 },
   {
     image: "https://res.cloudinary.com/dt3effj06/image/upload/v1741831336/sk_catering_available_Document_A4_gixgin.png",
