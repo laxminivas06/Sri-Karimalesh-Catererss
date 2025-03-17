@@ -96,7 +96,7 @@ const Hero = () => {
 
         {/* New Container for Today's Deals without Animation */}
         <div className="mt-10 bg-transparent-500 p-4 rounded-lg shadow-lg">
-          <span className="text-white text-2xl font-semibold ">🔥 Today's Deals are live! Check them out!</span>
+          <span className="text-white text-2xl font-bold ">🔥 Today's Deals are live! Check them out!</span>
           <div className="mt-4">
             <Link
               to="/todays-deals" // Link to the Today's Deals page
