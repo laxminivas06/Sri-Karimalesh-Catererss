@@ -4,7 +4,17 @@ import { motion } from "framer-motion"; // Import Framer Motion for animations
 
 const deals = [
   
+  
   {
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742269514/19_march_sk_grfpv3.png",
+    title: "Breakfast 19th March 2025",
+    description: "🥄 Sabudana Khichdi Lovers! Enjoy our Special Sabudana Khichdi at just $5.99 AUD! 🌿✨ Light, flavorful, and perfectly spiced for a delicious & healthy treat! 🥥🥜"
+},
+{
+    image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742269376/6_dm7oy5.png",
+    title: "Lunch 19th March 2025",
+    description: "🍛 Aloo Tomato Curry & White Rice! A comforting and rich combo at just $10.99 AUD! 🍅🥔 Served hot, fresh, and bursting with authentic flavors! 😍🔥"
+},{
     image: "https://res.cloudinary.com/dt3effj06/image/upload/v1742178847/4_xuunhs.png",
     title: "Breakfast 18th March 2025",
     description: "🥢 Idli Lovers! Get our Special Idli (4 pieces) at an unbeatable price of $5.99 AUD! Soft, fluffy, and served fresh! 🥥🍛"
